@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TarsX - Contact</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="stars-container"></div>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html">TarsX</a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="build-log.html">Build Log</a></li>
+                <li><a href="downloads.html">Downloads</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+                <li><a href="support.html">Support</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Contact Me</h1>
+                <p class="page-subtitle">Get in touch with the TarsX team</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <div class="contact-content">
+                    <div class="contact-form-container">
+                        <h2>Send me a Message</h2>
+                        <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+                            <input type="hidden" name="access_key" value="a6a29f10-558f-443f-ba2d-5dc1ebf2a61f">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <input type="text" id="subject" name="subject" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="6" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </form>
+                    </div>
+
+                    <div class="contact-info">
+                        <h2>Other Ways to Reach Me</h2>
+                        <div class="info-cards">
+                            <div class="info-card">
+                                <h3>Email</h3>
+                                <p><a href="mailto:yadunandpavithran05@gmail.com">yadunandpavithran05@gmail.com</a></p>
+                            </div>
+                            <div class="info-card">
+                                <h3>GitHub</h3>
+                                <p><a href="https://github.com/hi-yadunand" target="_blank">github.com/hi-yadunand</a></p>
+                            </div>
+                            <div class="info-card">
+                                <h3>Instagram</h3>
+                                <p><a href="https://instagram.com/tarsx.space" target="_blank">@tarsx.space</a></p>
+                            </div>
+                            <div class="info-card">
+                                <h3>Response Time</h3>
+                                <p class="response-text">We typically respond within 24-48 hours</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy;2025 TARSX</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Create moving stars
+        const starsContainer = document.getElementById('stars-container');
+        const numStars = 15;
+        const stars = [];
+        
+        // Create stars with random initial positions
+        for (let i = 0; i < numStars; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            const x = Math.random() * window.innerWidth;
+            const y = Math.random() * window.innerHeight;
+            star.style.left = x + 'px';
+            star.style.top = y + 'px';
+            starsContainer.appendChild(star);
+            stars.push({
+                element: star,
+                x: x,
+                y: y,
+                vx: (Math.random() - 0.5) * 0.3,
+                vy: (Math.random() - 0.5) * 0.3
+            });
+        }
+        
+        // Mouse position
+        let mouseX = window.innerWidth / 2;
+        let mouseY = window.innerHeight / 2;
+        
+        // Update mouse position
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+        
+        // Animate stars
+        function animateStars() {
+            stars.forEach((star) => {
+                // Random movement
+                star.x += star.vx;
+                star.y += star.vy;
+                
+                // Bounce off edges
+                if (star.x < 0 || star.x > window.innerWidth) star.vx *= -1;
+                if (star.y < 0 || star.y > window.innerHeight) star.vy *= -1;
+                
+                // Keep within bounds
+                star.x = Math.max(0, Math.min(window.innerWidth, star.x));
+                star.y = Math.max(0, Math.min(window.innerHeight, star.y));
+                
+                // Cursor influence (subtle pull towards cursor)
+                const dx = mouseX - star.x;
+                const dy = mouseY - star.y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                const influence = distance > 0 ? Math.min(100 / distance, 0.2) : 0;
+                
+                const finalX = star.x + dx * influence * 0.15;
+                const finalY = star.y + dy * influence * 0.15;
+                
+                // Update position
+                star.element.style.left = finalX + 'px';
+                star.element.style.top = finalY + 'px';
+            });
+            
+            requestAnimationFrame(animateStars);
+        }
+        
+        animateStars();
+        
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            stars.forEach((star) => {
+                star.x = Math.min(star.x, window.innerWidth);
+                star.y = Math.min(star.y, window.innerHeight);
+            });
+        });
+    </script>
+</body>
+</html>
+

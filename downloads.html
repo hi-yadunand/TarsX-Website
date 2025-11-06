@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TarsX - Downloads</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="stars-container"></div>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html">TarsX</a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="build-log.html">Build Log</a></li>
+                <li><a href="downloads.html" class="active">Downloads</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="support.html">Support</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Downloads</h1>
+                <p class="page-subtitle">Get the latest version of TarsX</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <div class="downloads-content">
+                    <div class="download-card featured">
+                        <div class="download-header">
+                            <h2>Latest Release</h2>
+                            <span class="version-badge">v2.1.0</span>
+                        </div>
+                        <p class="release-date">Released: December 20, 2024</p>
+                        <p class="download-description">
+                            The latest stable release with enhanced features, improved performance, and security updates.
+                        </p>
+                        <div class="download-options">
+                            <a href="#" class="btn btn-primary">Download for Windows</a>
+                            <a href="#" class="btn btn-primary">Download for macOS</a>
+                            <a href="#" class="btn btn-primary">Download for Linux</a>
+                        </div>
+                        <div class="download-info">
+                            <p><strong>System Requirements:</strong></p>
+                            <ul>
+                                <li>Windows 10/11, macOS 11+, or Linux (Ubuntu 20.04+)</li>
+                                <li>4GB RAM minimum (8GB recommended)</li>
+                                <li>500MB free disk space</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="previous-releases">
+                        <h2>Previous Releases</h2>
+                        <div class="release-list">
+                            <div class="release-item">
+                                <div class="release-info">
+                                    <h3>Version 2.0.5</h3>
+                                    <span class="release-date">December 10, 2024</span>
+                                </div>
+                                <a href="#" class="btn btn-secondary">Download</a>
+                            </div>
+                            <div class="release-item">
+                                <div class="release-info">
+                                    <h3>Version 2.0.0</h3>
+                                    <span class="release-date">November 28, 2024</span>
+                                </div>
+                                <a href="#" class="btn btn-secondary">Download</a>
+                            </div>
+                            <div class="release-item">
+                                <div class="release-info">
+                                    <h3>Version 1.9.0</h3>
+                                    <span class="release-date">October 15, 2024</span>
+                                </div>
+                                <a href="#" class="btn btn-secondary">Download</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="beta-section">
+                        <h2>Beta Releases</h2>
+                        <div class="beta-notice">
+                            <p><strong>Note:</strong> Beta releases may contain bugs and are not recommended for production use.</p>
+                        </div>
+                        <div class="release-list">
+                            <div class="release-item">
+                                <div class="release-info">
+                                    <h3>Beta 2.2.0</h3>
+                                    <span class="release-date">December 18, 2024</span>
+                                </div>
+                                <a href="#" class="btn btn-secondary">Download</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy;2025 TARSX</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Create moving stars
+        const starsContainer = document.getElementById('stars-container');
+        const numStars = 15;
+        const stars = [];
+        
+        // Create stars with random initial positions
+        for (let i = 0; i < numStars; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            const x = Math.random() * window.innerWidth;
+            const y = Math.random() * window.innerHeight;
+            star.style.left = x + 'px';
+            star.style.top = y + 'px';
+            starsContainer.appendChild(star);
+            stars.push({
+                element: star,
+                x: x,
+                y: y,
+                vx: (Math.random() - 0.5) * 0.3,
+                vy: (Math.random() - 0.5) * 0.3
+            });
+        }
+        
+        // Mouse position
+        let mouseX = window.innerWidth / 2;
+        let mouseY = window.innerHeight / 2;
+        
+        // Update mouse position
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+        
+        // Animate stars
+        function animateStars() {
+            stars.forEach((star) => {
+                // Random movement
+                star.x += star.vx;
+                star.y += star.vy;
+                
+                // Bounce off edges
+                if (star.x < 0 || star.x > window.innerWidth) star.vx *= -1;
+                if (star.y < 0 || star.y > window.innerHeight) star.vy *= -1;
+                
+                // Keep within bounds
+                star.x = Math.max(0, Math.min(window.innerWidth, star.x));
+                star.y = Math.max(0, Math.min(window.innerHeight, star.y));
+                
+                // Cursor influence (subtle pull towards cursor)
+                const dx = mouseX - star.x;
+                const dy = mouseY - star.y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                const influence = distance > 0 ? Math.min(100 / distance, 0.2) : 0;
+                
+                const finalX = star.x + dx * influence * 0.15;
+                const finalY = star.y + dy * influence * 0.15;
+                
+                // Update position
+                star.element.style.left = finalX + 'px';
+                star.element.style.top = finalY + 'px';
+            });
+            
+            requestAnimationFrame(animateStars);
+        }
+        
+        animateStars();
+        
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            stars.forEach((star) => {
+                star.x = Math.min(star.x, window.innerWidth);
+                star.y = Math.min(star.y, window.innerHeight);
+            });
+        });
+    </script>
+</body>
+</html>
+

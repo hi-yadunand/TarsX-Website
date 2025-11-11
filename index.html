@@ -25,7 +25,9 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">
-                <a href="index.html">TarsX</a>
+                <a href="index.html">
+                    <img src="Resources/White TARSX Wordmark Logo.svg" alt="TarsX Logo">
+                </a>
             </div>
             <ul class="nav-menu">
                 <li><a href="index.html" class="active">Home</a></li>
@@ -45,16 +47,25 @@
 
     <main>
         <section class="hero">
+            <!-- Optional: Add video background by uncommenting and adding your video file -->
+            <!-- 
+            <div class="hero-video">
+                <video autoplay muted loop playsinline>
+                    <source src="Resources/hero-video.mp4" type="video/mp4">
+                    <source src="Resources/hero-video.webm" type="video/webm">
+                </video>
+            </div>
+            -->
             <div class="hero-content">
-                <h1>COMING SOON.</h1>
-                <p class="hero-subtitle">Where intelligence isn't programmed— it's evolved.</p>
+                <h1 class="scroll-fade-in">COMING SOON.</h1>
+                <p class="hero-subtitle scroll-fade-in-delay">Where intelligence isn't programmed— it's evolved.</p>
             </div>
         </section>
 
         <section class="tars-section">
             <div class="tars-container">
-                <div class="tars-title">TARS</div>
-                <div class="tars-content">
+                <div class="tars-title scroll-slide-left">TARS</div>
+                <div class="tars-content scroll-slide-right">
                     <p class="tars-description">
                         They called it impossible. We called it a robot that thinks,<br>
                         learns, and jokes back. Where intelligence isn't programmed<br>
@@ -62,7 +73,7 @@
                     </p>
                     <a href="build-log.html" class="tars-link">Build Log →</a>
                 </div>
-                <div class="tars-tagline">
+                <div class="tars-tagline scroll-fade-in-delay">
                     <div class="tagline-line"></div>
                     <div class="tagline-text">
                         <span>Where</span>
@@ -70,7 +81,7 @@
                         <span>Becomes Real.</span>
                     </div>
                 </div>
-                <div class="tars-x">X</div>
+                <div class="tars-x scroll-fade-in">X</div>
             </div>
         </section>
     </main>
@@ -87,7 +98,7 @@
     <script>
         // Create moving stars
         const starsContainer = document.getElementById('stars-container');
-        const numStars = 15;
+        const numStars = 35;
         const stars = [];
         
         // Create stars with random initial positions
@@ -240,6 +251,45 @@
         
         window.addEventListener('scroll', fadeArrowOnScroll);
         fadeArrowOnScroll(); // Initial call
+    </script>
+    <script>
+        // Smooth scroll animations using Intersection Observer
+        // Trigger animation when element is about to enter viewport (100px before)
+        const observerOptions = {
+            threshold: 0,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with scroll animation classes
+        document.addEventListener('DOMContentLoaded', () => {
+            const animatedElements = document.querySelectorAll(
+                '.scroll-fade-in, .scroll-fade-in-delay, .scroll-slide-left, .scroll-slide-right'
+            );
+            
+            animatedElements.forEach(el => {
+                // Check if element is already in viewport on load
+                const rect = el.getBoundingClientRect();
+                const viewportHeight = window.innerHeight;
+                const isInViewport = rect.top < viewportHeight + 100 && rect.bottom > -100;
+                
+                if (isInViewport) {
+                    // Small delay to ensure smooth initial animation
+                    setTimeout(() => {
+                        el.classList.add('visible');
+                    }, 150);
+                } else {
+                    observer.observe(el);
+                }
+            });
+        });
     </script>
 </body>
 </html>

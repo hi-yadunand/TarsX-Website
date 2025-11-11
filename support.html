@@ -11,7 +11,9 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">
-                <a href="index.html">TarsX</a>
+                <a href="index.html">
+                    <img src="Resources/White TARSX Wordmark Logo.svg" alt="TarsX Logo">
+                </a>
             </div>
             <ul class="nav-menu">
                 <li><a href="index.html">Home</a></li>
@@ -32,24 +34,24 @@
     <main>
         <section class="page-header">
             <div class="container">
-                <h1>Support</h1>
-                <p class="page-subtitle">We're here to help you</p>
+                <h1 class="scroll-fade-in">Support</h1>
+                <p class="page-subtitle scroll-fade-in-delay">We're here to help you</p>
             </div>
         </section>
 
         <section class="content-section">
             <div class="container">
                 <div class="support-content">
-                    <div class="support-coffee">
+                    <div class="support-coffee scroll-fade-in">
                         <h2>Support My Work</h2>
                         <p>Big or small, your support means the world to me. Let's build the future—one idea at a time. 💡🤖🚀</p>
                         <a href="https://buymeacoffee.com/yadunand" target="_blank" class="btn btn-primary">Buy Me a Coffee</a>
                     </div>
 
-                    <div class="faq-section">
+                    <div class="faq-section scroll-fade-in-delay">
                         <h2>Frequently Asked Questions</h2>
                         <div class="faq-list">
-                            <div class="faq-item">
+                            <div class="faq-item scroll-fade-in-delay">
                                 <div class="faq-question">
                                     <h3>How do I install TarsX?</h3>
                                     <span class="faq-toggle">+</span>
@@ -58,7 +60,7 @@
                                     <p>Download the installer from our Downloads page and follow the on-screen instructions. The installation process is straightforward and typically takes just a few minutes.</p>
                                 </div>
                             </div>
-                            <div class="faq-item">
+                            <div class="faq-item scroll-fade-in-delay">
                                 <div class="faq-question">
                                     <h3>What are the system requirements?</h3>
                                     <span class="faq-toggle">+</span>
@@ -67,7 +69,7 @@
                                     <p>TarsX requires Windows 10/11, macOS 11+, or Linux (Ubuntu 20.04+). You'll need at least 4GB of RAM (8GB recommended) and 500MB of free disk space.</p>
                                 </div>
                             </div>
-                            <div class="faq-item">
+                            <div class="faq-item scroll-fade-in-delay">
                                 <div class="faq-question">
                                     <h3>Is TarsX free to use?</h3>
                                     <span class="faq-toggle">+</span>
@@ -76,7 +78,7 @@
                                     <p>Yes, TarsX is free to download and use. We offer both free and premium versions with additional features available in the premium tier.</p>
                                 </div>
                             </div>
-                            <div class="faq-item">
+                            <div class="faq-item scroll-fade-in-delay">
                                 <div class="faq-question">
                                     <h3>How do I report a bug?</h3>
                                     <span class="faq-toggle">+</span>
@@ -85,7 +87,7 @@
                                     <p>You can report bugs through our Contact page or by emailing support@tarsx.com. Please include as much detail as possible about the issue you're experiencing.</p>
                                 </div>
                             </div>
-                            <div class="faq-item">
+                            <div class="faq-item scroll-fade-in-delay">
                                 <div class="faq-question">
                                     <h3>Where can I find documentation?</h3>
                                     <span class="faq-toggle">+</span>
@@ -94,7 +96,7 @@
                                     <p>Comprehensive documentation is available in the application's help menu, or you can visit our documentation portal online. Links are provided in the application.</p>
                                 </div>
                             </div>
-                            <div class="faq-item">
+                            <div class="faq-item scroll-fade-in-delay">
                                 <div class="faq-question">
                                     <h3>How often are updates released?</h3>
                                     <span class="faq-toggle">+</span>
@@ -106,28 +108,28 @@
                         </div>
                     </div>
 
-                    <div class="support-resources">
+                    <div class="support-resources scroll-fade-in-delay">
                         <h2>Additional Resources</h2>
                         <div class="resource-grid">
-                            <div class="resource-card">
+                            <div class="resource-card scroll-fade-in-delay">
                                 <div class="resource-icon">📚</div>
                                 <h3>Documentation</h3>
                                 <p>Comprehensive guides and tutorials</p>
                                 <a href="#" class="btn btn-secondary">View Docs</a>
                             </div>
-                            <div class="resource-card">
+                            <div class="resource-card scroll-fade-in-delay">
                                 <div class="resource-icon">🎥</div>
                                 <h3>Video Tutorials</h3>
                                 <p>Step-by-step video guides</p>
                                 <a href="#" class="btn btn-secondary">Watch Videos</a>
                             </div>
-                            <div class="resource-card">
+                            <div class="resource-card scroll-fade-in-delay">
                                 <div class="resource-icon">💬</div>
                                 <h3>Community Forum</h3>
                                 <p>Connect with other users</p>
                                 <a href="#" class="btn btn-secondary">Join Forum</a>
                             </div>
-                            <div class="resource-card">
+                            <div class="resource-card scroll-fade-in-delay">
                                 <div class="resource-icon">🐛</div>
                                 <h3>Bug Tracker</h3>
                                 <p>Report and track issues</p>
@@ -136,7 +138,7 @@
                         </div>
                     </div>
 
-                    <div class="support-contact">
+                    <div class="support-contact scroll-fade-in-delay">
                         <h2>Still Need Help?</h2>
                         <p>If you can't find what you're looking for, don't hesitate to reach out to our support team.</p>
                         <a href="contact.html" class="btn btn-secondary">Contact Me</a>
@@ -158,7 +160,7 @@
     <script>
         // Create moving stars
         const starsContainer = document.getElementById('stars-container');
-        const numStars = 15;
+        const numStars = 35;
         const stars = [];
         
         // Create stars with random initial positions
@@ -229,6 +231,80 @@
                 star.x = Math.min(star.x, window.innerWidth);
                 star.y = Math.min(star.y, window.innerHeight);
             });
+        });
+    </script>
+    <script>
+        // Smooth scroll animations using Intersection Observer
+        // Trigger animation when element is about to enter viewport (100px before)
+        const observerOptions = {
+            threshold: 0,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with scroll animation classes
+        document.addEventListener('DOMContentLoaded', () => {
+            const animatedElements = document.querySelectorAll(
+                '.scroll-fade-in, .scroll-fade-in-delay, .scroll-slide-left, .scroll-slide-right'
+            );
+            
+            animatedElements.forEach(el => {
+                // Check if element is already in viewport on load
+                const rect = el.getBoundingClientRect();
+                const viewportHeight = window.innerHeight;
+                const isInViewport = rect.top < viewportHeight + 100 && rect.bottom > -100;
+                
+                if (isInViewport) {
+                    // Small delay to ensure smooth initial animation
+                    setTimeout(() => {
+                        el.classList.add('visible');
+                    }, 150);
+                } else {
+                    observer.observe(el);
+                }
+            });
+        });
+    </script>
+    <script>
+        // Auto-scroll down after page loads with slow smooth animation
+        window.addEventListener('load', () => {
+            // Wait a moment for initial animations
+            setTimeout(() => {
+                const contentSection = document.querySelector('.content-section');
+                if (contentSection) {
+                    const targetPosition = window.innerHeight;
+                    const startPosition = window.pageYOffset;
+                    const distance = targetPosition - startPosition;
+                    const duration = 2000; // 2 seconds for slow scroll
+                    let start = null;
+
+                    function smoothScroll(timestamp) {
+                        if (!start) start = timestamp;
+                        const progress = timestamp - start;
+                        const percentage = Math.min(progress / duration, 1);
+                        
+                        // Easing function for smooth deceleration
+                        const easeInOutCubic = percentage < 0.5
+                            ? 4 * percentage * percentage * percentage
+                            : 1 - Math.pow(-2 * percentage + 2, 3) / 2;
+                        
+                        window.scrollTo(0, startPosition + distance * easeInOutCubic);
+                        
+                        if (progress < duration) {
+                            requestAnimationFrame(smoothScroll);
+                        }
+                    }
+                    
+                    requestAnimationFrame(smoothScroll);
+                }
+            }, 1500); // 1.5 second delay to let header animations play
         });
     </script>
 </body>

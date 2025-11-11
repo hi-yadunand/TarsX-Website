@@ -17,27 +17,21 @@
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
-/* Eurostile Font */
+/* Nasalization Font */
 @font-face {
-    font-family: 'Eurostile';
-    src: url('fonts/Eurostile-Regular.woff2') format('woff2'),
-         url('fonts/Eurostile-Regular.woff') format('woff'),
-         url('fonts/Eurostile-Regular.ttf') format('truetype');
+    font-family: 'Nasalization';
+    src: url('fonts/Nasalization.woff2') format('woff2'),
+         url('fonts/Nasalization.woff') format('woff'),
+         url('fonts/Nasalization.ttf') format('truetype'),
+         url('fonts/nasalization-rg.woff2') format('woff2'),
+         url('fonts/nasalization-rg.woff') format('woff'),
+         url('fonts/nasalization-rg.ttf') format('truetype');
     font-weight: 400;
     font-style: normal;
 }
 
-@font-face {
-    font-family: 'Eurostile';
-    src: url('fonts/Eurostile-Bold.woff2') format('woff2'),
-         url('fonts/Eurostile-Bold.woff') format('woff'),
-         url('fonts/Eurostile-Bold.ttf') format('truetype');
-    font-weight: 700;
-    font-style: normal;
-}
-
 body {
-    font-family: 'Eurostile', sans-serif;
+    font-family: 'Nasalization', sans-serif;
     color: var(--text-color);
     font-size: 16px;
     line-height: 1.5;
@@ -145,12 +139,14 @@ body {
 /* Navigation */
 .navbar {
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, transparent 100%);
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
     z-index: 1000;
     transition: opacity 0.3s ease-in-out;
     opacity: 1;
-    margin-top: -20px;
+    width: 100%;
 }
 
 .navbar.hidden {
@@ -172,18 +168,28 @@ body {
 .logo {
     position: absolute;
     left: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
 }
 
 .logo a {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #FFFFFF;
+    display: inline-block;
     text-decoration: none;
-    transition: color 0.3s;
+    transition: opacity 0.3s;
+    line-height: 1;
+}
+
+.logo a img {
+    height: 80px;
+    width: auto;
+    max-width: 250px;
+    display: block;
 }
 
 .logo a:hover {
-    color: var(--primary-color);
+    opacity: 0.8;
 }
 
 .nav-menu {
@@ -223,26 +229,119 @@ body {
 /* Hero Section */
 .hero {
     position: relative;
-    min-height: 600px;
+    height: 100vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    background-color: #000000;
     background-image: url('Resources/Mars_photo-removebg-preview.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    margin-top: 80px;
+}
+
+/* Support for high-resolution images - use 2x resolution on retina displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .hero {
+        background-image: url('Resources/Mars_photo-removebg-preview.png');
+        background-size: cover;
+    }
+}
+
+/* Full-viewport section utility class */
+.full-viewport-section {
+    position: relative;
+    height: 100vh;
+    min-height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Section background media (images/videos) */
+.section-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    object-fit: cover;
+    object-position: center;
+}
+
+.section-background img,
+.section-background video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Ensure section content appears above background */
+.section-content {
+    position: relative;
+    z-index: 2;
+}
+
+/* Scroll Animation Classes */
+.scroll-fade-in {
+    opacity: 0;
+    transform: translateY(15px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scroll-fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.scroll-slide-left {
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scroll-slide-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.scroll-slide-right {
+    opacity: 0;
+    transform: translateX(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scroll-slide-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.scroll-fade-in-delay {
+    opacity: 0;
+    transform: translateY(15px);
+    transition: opacity 0.6s ease-out 0.1s, transform 0.6s ease-out 0.1s;
+}
+
+.scroll-fade-in-delay.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .hero-video {
     position: absolute;
-    top: 50px;
+    top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     z-index: 1;
     opacity: 1;
+    pointer-events: none;
 }
 
 .hero-video video,
@@ -250,6 +349,18 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
+}
+
+/* High-quality video rendering for crisp playback */
+.hero-video video {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+}
+
+/* When video is present, ensure it covers the background */
+.hero:has(.hero-video video) {
+    background-image: none;
 }
 
 .hero-content {
@@ -258,7 +369,6 @@ body {
     text-align: center;
     color: white;
     padding: 2rem;
-    margin-top: -220px;
 }
 
 .hero-content h1 {
@@ -280,9 +390,10 @@ body {
 /* TARS Section */
 .tars-section {
     position: relative;
+    height: 100vh;
     min-height: 100vh;
     background: #000000;
-    padding: 4rem 2rem;
+    padding: 0;
     overflow: hidden;
 }
 
@@ -307,7 +418,8 @@ body {
     grid-template-rows: 1fr 1fr;
     gap: 2rem;
     z-index: 1;
-    margin-top: -50px;
+    padding: 2rem;
+    box-sizing: border-box;
 }
 
 .tars-title {
@@ -516,8 +628,14 @@ body {
 .page-header {
     background-color: #000000;
     color: white;
-    padding: 6rem 0 4rem 0;
+    height: 100vh;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
+    position: relative;
+    overflow: hidden;
 }
 
 .page-header h1 {
@@ -1042,6 +1160,11 @@ footer {
         left: 20px;
     }
 
+    .logo a img {
+        height: 50px;
+        max-width: 220px;
+    }
+
     .nav-menu {
         position: fixed;
         left: -100%;
@@ -1059,12 +1182,61 @@ footer {
         left: 0;
     }
 
+    /* Ensure full-viewport sections remain full-viewport on mobile */
+    .hero,
+    .tars-section,
+    .full-viewport-section {
+        min-height: 100vh;
+        min-height: -webkit-fill-available; /* iOS Safari fix */
+    }
+
     .hero-content h1 {
         font-size: 2.5rem;
     }
 
     .hero-subtitle {
         font-size: 1.25rem;
+    }
+
+    .tars-container {
+        padding: 1rem;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        gap: 1rem;
+    }
+
+    .tars-title {
+        font-size: 4rem;
+        margin-left: 0;
+        grid-column: 1;
+        grid-row: 1;
+        text-align: center;
+    }
+
+    .tars-content {
+        grid-column: 1;
+        grid-row: 2;
+        justify-self: center;
+        text-align: center;
+        max-width: 100%;
+        margin-left: 0;
+    }
+
+    .tars-tagline {
+        grid-column: 1;
+        grid-row: 3;
+        justify-self: center;
+        margin-right: 0;
+        margin-bottom: 0;
+    }
+
+    .tars-x {
+        grid-column: 1;
+        grid-row: 4;
+        justify-self: center;
+        font-size: 8rem;
+        margin-top: 0;
+        margin-bottom: 0;
     }
 
     .contact-content {
@@ -1082,6 +1254,15 @@ footer {
     .download-options .btn {
         width: 100%;
         text-align: center;
+    }
+}
+
+/* Fix for iOS Safari viewport height issue */
+@supports (-webkit-touch-callout: none) {
+    .hero,
+    .tars-section,
+    .full-viewport-section {
+        min-height: -webkit-fill-available;
     }
 }
 

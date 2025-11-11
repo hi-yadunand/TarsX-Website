@@ -11,7 +11,9 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">
-                <a href="index.html">TarsX</a>
+                <a href="index.html">
+                    <img src="Resources/White TARSX Wordmark Logo.svg" alt="TarsX Logo">
+                </a>
             </div>
             <ul class="nav-menu">
                 <li><a href="index.html">Home</a></li>
@@ -32,15 +34,15 @@
     <main>
         <section class="page-header">
             <div class="container">
-                <h1>Contact Me</h1>
-                <p class="page-subtitle">Get in touch with the TarsX team</p>
+                <h1 class="scroll-fade-in">Contact Me</h1>
+                <p class="page-subtitle scroll-fade-in-delay">Get in touch with the TarsX team</p>
             </div>
         </section>
 
         <section class="content-section">
             <div class="container">
                 <div class="contact-content">
-                    <div class="contact-form-container">
+                    <div class="contact-form-container scroll-slide-left">
                         <h2>Send me a Message</h2>
                         <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
                             <input type="hidden" name="access_key" value="a6a29f10-558f-443f-ba2d-5dc1ebf2a61f">
@@ -64,22 +66,22 @@
                         </form>
                     </div>
 
-                    <div class="contact-info">
+                    <div class="contact-info scroll-slide-right">
                         <h2>Other Ways to Reach Me</h2>
                         <div class="info-cards">
-                            <div class="info-card">
+                            <div class="info-card scroll-fade-in-delay">
                                 <h3>Email</h3>
                                 <p><a href="mailto:yadunandpavithran05@gmail.com">yadunandpavithran05@gmail.com</a></p>
                             </div>
-                            <div class="info-card">
+                            <div class="info-card scroll-fade-in-delay">
                                 <h3>GitHub</h3>
                                 <p><a href="https://github.com/hi-yadunand" target="_blank">github.com/hi-yadunand</a></p>
                             </div>
-                            <div class="info-card">
+                            <div class="info-card scroll-fade-in-delay">
                                 <h3>Instagram</h3>
                                 <p><a href="https://instagram.com/tarsx.space" target="_blank">@tarsx.space</a></p>
                             </div>
-                            <div class="info-card">
+                            <div class="info-card scroll-fade-in-delay">
                                 <h3>Response Time</h3>
                                 <p class="response-text">We typically respond within 24-48 hours</p>
                             </div>
@@ -102,7 +104,7 @@
     <script>
         // Create moving stars
         const starsContainer = document.getElementById('stars-container');
-        const numStars = 15;
+        const numStars = 35;
         const stars = [];
         
         // Create stars with random initial positions
@@ -173,6 +175,80 @@
                 star.x = Math.min(star.x, window.innerWidth);
                 star.y = Math.min(star.y, window.innerHeight);
             });
+        });
+    </script>
+    <script>
+        // Smooth scroll animations using Intersection Observer
+        // Trigger animation when element is about to enter viewport (100px before)
+        const observerOptions = {
+            threshold: 0,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with scroll animation classes
+        document.addEventListener('DOMContentLoaded', () => {
+            const animatedElements = document.querySelectorAll(
+                '.scroll-fade-in, .scroll-fade-in-delay, .scroll-slide-left, .scroll-slide-right'
+            );
+            
+            animatedElements.forEach(el => {
+                // Check if element is already in viewport on load
+                const rect = el.getBoundingClientRect();
+                const viewportHeight = window.innerHeight;
+                const isInViewport = rect.top < viewportHeight + 100 && rect.bottom > -100;
+                
+                if (isInViewport) {
+                    // Small delay to ensure smooth initial animation
+                    setTimeout(() => {
+                        el.classList.add('visible');
+                    }, 150);
+                } else {
+                    observer.observe(el);
+                }
+            });
+        });
+    </script>
+    <script>
+        // Auto-scroll down after page loads with slow smooth animation
+        window.addEventListener('load', () => {
+            // Wait a moment for initial animations
+            setTimeout(() => {
+                const contentSection = document.querySelector('.content-section');
+                if (contentSection) {
+                    const targetPosition = window.innerHeight;
+                    const startPosition = window.pageYOffset;
+                    const distance = targetPosition - startPosition;
+                    const duration = 2000; // 2 seconds for slow scroll
+                    let start = null;
+
+                    function smoothScroll(timestamp) {
+                        if (!start) start = timestamp;
+                        const progress = timestamp - start;
+                        const percentage = Math.min(progress / duration, 1);
+                        
+                        // Easing function for smooth deceleration
+                        const easeInOutCubic = percentage < 0.5
+                            ? 4 * percentage * percentage * percentage
+                            : 1 - Math.pow(-2 * percentage + 2, 3) / 2;
+                        
+                        window.scrollTo(0, startPosition + distance * easeInOutCubic);
+                        
+                        if (progress < duration) {
+                            requestAnimationFrame(smoothScroll);
+                        }
+                    }
+                    
+                    requestAnimationFrame(smoothScroll);
+                }
+            }, 1500); // 1.5 second delay to let header animations play
         });
     </script>
 </body>

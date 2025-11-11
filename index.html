@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <div id="stars-container"></div>
     <div class="scroll-arrow"></div>
@@ -100,7 +102,7 @@
         const starsContainer = document.getElementById('stars-container');
         const numStars = 35;
         const stars = [];
-        
+
         // Create stars with random initial positions
         for (let i = 0; i < numStars; i++) {
             const star = document.createElement('div');
@@ -118,51 +120,51 @@
                 vy: (Math.random() - 0.5) * 0.3
             });
         }
-        
+
         // Mouse position
         let mouseX = window.innerWidth / 2;
         let mouseY = window.innerHeight / 2;
-        
+
         // Update mouse position
         document.addEventListener('mousemove', (e) => {
             mouseX = e.clientX;
             mouseY = e.clientY;
         });
-        
+
         // Animate stars
         function animateStars() {
             stars.forEach((star) => {
                 // Random movement
                 star.x += star.vx;
                 star.y += star.vy;
-                
+
                 // Bounce off edges
                 if (star.x < 0 || star.x > window.innerWidth) star.vx *= -1;
                 if (star.y < 0 || star.y > window.innerHeight) star.vy *= -1;
-                
+
                 // Keep within bounds
                 star.x = Math.max(0, Math.min(window.innerWidth, star.x));
                 star.y = Math.max(0, Math.min(window.innerHeight, star.y));
-                
+
                 // Cursor influence (subtle pull towards cursor)
                 const dx = mouseX - star.x;
                 const dy = mouseY - star.y;
                 const distance = Math.sqrt(dx * dx + dy * dy);
                 const influence = distance > 0 ? Math.min(100 / distance, 0.2) : 0;
-                
+
                 const finalX = star.x + dx * influence * 0.15;
                 const finalY = star.y + dy * influence * 0.15;
-                
+
                 // Update position
                 star.element.style.left = finalX + 'px';
                 star.element.style.top = finalY + 'px';
             });
-            
+
             requestAnimationFrame(animateStars);
         }
-        
+
         animateStars();
-        
+
         // Handle window resize
         window.addEventListener('resize', () => {
             stars.forEach((star) => {
@@ -180,46 +182,46 @@
         const TIME_RATIO = EARTH_SECONDS_PER_DAY / MARS_SECONDS_PER_SOL;
 
         function formatTime(hours, minutes, seconds) {
-            return String(hours).padStart(2, '0') + ':' + 
-                   String(minutes).padStart(2, '0') + ':' + 
-                   String(seconds).padStart(2, '0');
+            return String(hours).padStart(2, '0') + ':' +
+                String(minutes).padStart(2, '0') + ':' +
+                String(seconds).padStart(2, '0');
         }
 
         function calculateMTC(utcDate) {
             // Calculate seconds since MTC epoch
             const secondsSinceEpoch = (utcDate.getTime() - MTC_EPOCH) / 1000;
-            
+
             // Convert to Mars time
             const marsSecondsSinceEpoch = secondsSinceEpoch * TIME_RATIO;
-            
+
             // Calculate MTC time (starting from epoch MTC = 12:00:00)
             const totalMarsSeconds = marsSecondsSinceEpoch + (12 * 3600); // Add 12 hours for epoch
-            
+
             // Handle negative values (before epoch)
             const marsDays = Math.floor(totalMarsSeconds / MARS_SECONDS_PER_SOL);
             const secondsInCurrentSol = totalMarsSeconds % MARS_SECONDS_PER_SOL;
-            
+
             // If negative, adjust
-            const adjustedSeconds = secondsInCurrentSol < 0 
-                ? secondsInCurrentSol + MARS_SECONDS_PER_SOL 
+            const adjustedSeconds = secondsInCurrentSol < 0
+                ? secondsInCurrentSol + MARS_SECONDS_PER_SOL
                 : secondsInCurrentSol;
-            
+
             const hours = Math.floor(adjustedSeconds / 3600) % 24;
             const minutes = Math.floor((adjustedSeconds % 3600) / 60);
             const seconds = Math.floor(adjustedSeconds % 60);
-            
+
             return { hours, minutes, seconds };
         }
 
         function updateTimes() {
             const now = new Date();
-            
+
             // Update UTC time
             const utcHours = now.getUTCHours();
             const utcMinutes = now.getUTCMinutes();
             const utcSeconds = now.getUTCSeconds();
             document.getElementById('utc-time').textContent = formatTime(utcHours, utcMinutes, utcSeconds);
-            
+
             // Calculate and update MTC time
             const mtc = calculateMTC(now);
             document.getElementById('mtc-time').textContent = formatTime(mtc.hours, mtc.minutes, mtc.seconds);
@@ -232,12 +234,12 @@
     <script>
         // Fade arrow on scroll
         const scrollArrow = document.querySelector('.scroll-arrow');
-        
+
         function fadeArrowOnScroll() {
             const scrollY = window.scrollY;
             const fadeStart = 100; // Start fading after 100px of scroll
             const fadeEnd = 300; // Completely faded at 300px
-            
+
             if (scrollY < fadeStart) {
                 scrollArrow.style.opacity = '1';
             } else if (scrollY > fadeEnd) {
@@ -248,7 +250,7 @@
                 scrollArrow.style.opacity = (1 - fadeProgress).toString();
             }
         }
-        
+
         window.addEventListener('scroll', fadeArrowOnScroll);
         fadeArrowOnScroll(); // Initial call
     </script>
@@ -273,13 +275,13 @@
             const animatedElements = document.querySelectorAll(
                 '.scroll-fade-in, .scroll-fade-in-delay, .scroll-slide-left, .scroll-slide-right'
             );
-            
+
             animatedElements.forEach(el => {
                 // Check if element is already in viewport on load
                 const rect = el.getBoundingClientRect();
                 const viewportHeight = window.innerHeight;
                 const isInViewport = rect.top < viewportHeight + 100 && rect.bottom > -100;
-                
+
                 if (isInViewport) {
                     // Small delay to ensure smooth initial animation
                     setTimeout(() => {
@@ -292,5 +294,5 @@
         });
     </script>
 </body>
-</html>
 
+</html>

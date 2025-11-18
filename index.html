@@ -34,6 +34,7 @@
             <ul class="nav-menu">
                 <li><a href="index.html" class="active">Home</a></li>
                 <li><a href="about.html">About</a></li>
+                <li><a href="dronx.html">Projects</a></li>
                 <li><a href="build-log.html">Build Log</a></li>
                 <li><a href="downloads.html">Downloads</a></li>
                 <li><a href="contact.html">Contact</a></li>
@@ -256,10 +257,10 @@
     </script>
     <script>
         // Smooth scroll animations using Intersection Observer
-        // Trigger animation when element is about to enter viewport (100px before)
+        // Trigger animation when element is about to enter viewport (50px before)
         const observerOptions = {
             threshold: 0,
-            rootMargin: '0px 0px -100px 0px'
+            rootMargin: '0px 0px -50px 0px'
         };
 
         const observer = new IntersectionObserver((entries) => {
@@ -280,13 +281,13 @@
                 // Check if element is already in viewport on load
                 const rect = el.getBoundingClientRect();
                 const viewportHeight = window.innerHeight;
-                const isInViewport = rect.top < viewportHeight + 100 && rect.bottom > -100;
+                const isInViewport = rect.top < viewportHeight + 50 && rect.bottom > -50;
 
                 if (isInViewport) {
                     // Small delay to ensure smooth initial animation
                     setTimeout(() => {
                         el.classList.add('visible');
-                    }, 150);
+                    }, 100);
                 } else {
                     observer.observe(el);
                 }

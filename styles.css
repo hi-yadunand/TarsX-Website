@@ -25,6 +25,15 @@
     font-style: normal;
 }
 
+html {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+}
+
+html::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+
 body {
     font-family: 'Nasalization', sans-serif;
     color: var(--text-color);
@@ -37,6 +46,12 @@ body {
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+}
+
+body::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
 }
 
 /* Time Display */
@@ -87,6 +102,16 @@ body {
     pointer-events: none;
     opacity: 1;
     transition: opacity 0.1s ease-out;
+    animation: arrowBounce 2s ease-in-out infinite;
+}
+
+@keyframes arrowBounce {
+    0%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    50% {
+        transform: translateX(-50%) translateY(10px);
+    }
 }
 
 .scroll-arrow::before {
@@ -207,6 +232,48 @@ body {
     color: var(--primary-color);
 }
 
+/* Projects hover tooltip - DronX */
+.nav-menu a[href="dronx.html"] {
+    position: relative;
+    padding-bottom: 35px; /* Expand clickable area to include tooltip */
+}
+
+.nav-menu a[href="dronx.html"]::after {
+    content: 'DronX';
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #FFFFFF;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    pointer-events: auto;
+    cursor: pointer;
+    z-index: 1001;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, color 0.3s ease-in-out;
+    text-align: center;
+}
+
+/* Toggled state - always visible */
+.nav-menu a[href="dronx.html"].tooltip-visible::after {
+    opacity: 1;
+    transform: translateX(-50%);
+    color: #FFFFFF;
+}
+
+.nav-menu a[href="dronx.html"]:hover::after {
+    opacity: 1;
+    transform: translateX(-50%);
+    color: var(--primary-color);
+}
+
+/* When toggled AND hovered, use hover styles */
+.nav-menu a[href="dronx.html"].tooltip-visible:hover::after {
+    transform: translateX(-50%);
+    color: var(--primary-color);
+}
+
 .hamburger {
     display: none;
     flex-direction: column;
@@ -287,7 +354,7 @@ body {
 .scroll-fade-in {
     opacity: 0;
     transform: translateY(15px);
-    transition: opacity 0.1s ease-out, transform 0.15s ease-out;
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
 }
 
 .scroll-fade-in.visible {
@@ -298,7 +365,7 @@ body {
 .scroll-slide-left {
     opacity: 0;
     transform: translateX(-20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
 }
 
 .scroll-slide-left.visible {
@@ -309,7 +376,7 @@ body {
 .scroll-slide-right {
     opacity: 0;
     transform: translateX(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
 }
 
 .scroll-slide-right.visible {
@@ -320,7 +387,7 @@ body {
 .scroll-fade-in-delay {
     opacity: 0;
     transform: translateY(15px);
-    transition: opacity 0.6s ease-out 0.1s, transform 0.6s ease-out 0.1s;
+    transition: opacity 0.3s ease-out 0.05s, transform 0.3s ease-out 0.05s;
 }
 
 .scroll-fade-in-delay.visible {

@@ -116,5 +116,39 @@ document.addEventListener('DOMContentLoaded', function() {
 
         lastScrollTop = scrollTop;
     });
+
+    // Make Projects link area more clickable (including tooltip area)
+    const projectsLink = document.querySelector('.nav-menu a[href="dronx.html"]');
+    if (projectsLink) {
+        // The expanded padding-bottom already makes the entire area clickable
+        // Add visual feedback on hover
+        projectsLink.addEventListener('mouseenter', function() {
+            this.style.cursor = 'pointer';
+        });
+
+        // Toggle tooltip visibility on click (prevent navigation to toggle)
+        projectsLink.addEventListener('click', function(e) {
+            // Check if clicking on the Projects text (not the tooltip area)
+            const rect = this.getBoundingClientRect();
+            const clickY = e.clientY;
+            const linkBottom = rect.bottom;
+            const linkTop = rect.top;
+            
+            // Calculate tooltip area (bottom 30px of the expanded clickable area)
+            const tooltipAreaStart = linkBottom - 30;
+            
+            // If clicking in the tooltip area (DronX text), navigate to dronx.html
+            if (clickY >= tooltipAreaStart && clickY <= linkBottom) {
+                // Allow default navigation to dronx.html
+                return true;
+            }
+            
+            // If clicking in the main link area (Projects text), toggle visibility
+            if (clickY >= linkTop && clickY < tooltipAreaStart) {
+                e.preventDefault();
+                this.classList.toggle('tooltip-visible');
+            }
+        });
+    }
 });
 

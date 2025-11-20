@@ -45,52 +45,74 @@
             </div>
         </section>
 
-        <section class="content-section">
+        <section class="content-section contact-modern">
             <div class="container">
-                <div class="contact-content">
-                    <div class="contact-form-container scroll-slide-left">
-                        <h2>Send me a Message</h2>
+                <div class="contact-grid">
+                    <div class="contact-form-modern scroll-slide-left">
+                        <div class="form-header">
+                            <span class="form-number">01</span>
+                            <h3>Send a Message</h3>
+                        </div>
                         <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
                             <input type="hidden" name="access_key" value="a6a29f10-558f-443f-ba2d-5dc1ebf2a61f">
-                            <div class="form-group">
-                                <label for="name">Name</label>
-                                <input type="text" id="name" name="name" required>
+                            <div class="form-group-modern">
+                                <input type="text" id="name" name="name" placeholder=" " required>
+                                <label for="name">Your Name</label>
                             </div>
-                            <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="email" id="email" name="email" required>
+                            <div class="form-group-modern">
+                                <input type="email" id="email" name="email" placeholder=" " required>
+                                <label for="email">Email Address</label>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group-modern">
+                                <input type="text" id="subject" name="subject" placeholder=" " required>
                                 <label for="subject">Subject</label>
-                                <input type="text" id="subject" name="subject" required>
                             </div>
-                            <div class="form-group">
-                                <label for="message">Message</label>
-                                <textarea id="message" name="message" rows="6" required></textarea>
+                            <div class="form-group-modern">
+                                <textarea id="message" name="message" rows="5" placeholder=" " required></textarea>
+                                <label for="message">Your Message</label>
                             </div>
-                            <button type="submit" class="btn btn-primary">Send Message</button>
+                            <button type="submit" class="btn-modern">
+                                <span>Send Message</span>
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <path d="M4 10H16M16 10L12 6M16 10L12 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                            </button>
                         </form>
                     </div>
 
-                    <div class="contact-info scroll-slide-right">
-                        <h2>Other Ways to Reach Me</h2>
-                        <div class="info-cards">
-                            <div class="info-card scroll-fade-in-delay">
-                                <h3>Email</h3>
-                                <p><a href="mailto:yadunandpavithran05@gmail.com">yadunandpavithran05@gmail.com</a></p>
-                            </div>
-                            <div class="info-card scroll-fade-in-delay">
-                                <h3>GitHub</h3>
-                                <p><a href="https://github.com/hi-yadunand" target="_blank">github.com/hi-yadunand</a></p>
-                            </div>
-                            <div class="info-card scroll-fade-in-delay">
-                                <h3>Instagram</h3>
-                                <p><a href="https://instagram.com/tarsx.space" target="_blank">@tarsx.space</a></p>
-                            </div>
-                            <div class="info-card scroll-fade-in-delay">
-                                <h3>Response Time</h3>
-                                <p class="response-text">We typically respond within 24-48 hours</p>
-                            </div>
+                    <div class="contact-links-modern scroll-slide-right">
+                        <div class="links-header">
+                            <span class="form-number">02</span>
+                            <h3>Connect With Me</h3>
+                        </div>
+                        <div class="contact-links-grid">
+                            <a href="mailto:yadunandpavithran05@gmail.com" class="contact-link-card">
+                                <div class="link-icon">✉</div>
+                                <div class="link-content">
+                                    <h4>Email</h4>
+                                    <p>yadunandpavithran05@gmail.com</p>
+                                </div>
+                                <div class="link-arrow">→</div>
+                            </a>
+                            <a href="https://github.com/hi-yadunand" target="_blank" class="contact-link-card">
+                                <div class="link-icon">⚡</div>
+                                <div class="link-content">
+                                    <h4>GitHub</h4>
+                                    <p>github.com/hi-yadunand</p>
+                                </div>
+                                <div class="link-arrow">→</div>
+                            </a>
+                            <a href="https://instagram.com/tarsx.space" target="_blank" class="contact-link-card">
+                                <div class="link-icon">📷</div>
+                                <div class="link-content">
+                                    <h4>Instagram</h4>
+                                    <p>@tarsx.space</p>
+                                </div>
+                                <div class="link-arrow">→</div>
+                            </a>
+                        </div>
+                        <div class="response-info">
+                            <p>⚡ Typically respond within <strong>24-48 hours</strong></p>
                         </div>
                     </div>
                 </div>

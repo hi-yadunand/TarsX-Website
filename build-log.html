@@ -45,74 +45,250 @@
             </div>
         </section>
 
-        <section class="content-section">
-            <div class="container">
-                <div class="build-log">
-                    <div class="log-entry scroll-fade-in">
-                        <div class="log-date">2024-12-20</div>
-                        <div class="log-content">
-                            <h3>Version 2.1.0 Released</h3>
-                            <p>Major update with performance improvements and new features:</p>
-                            <ul>
-                                <li>Enhanced security protocols</li>
-                                <li>Improved user interface</li>
-                                <li>Bug fixes and stability improvements</li>
-                                <li>New API endpoints</li>
-                            </ul>
-                        </div>
-                    </div>
+        <section class="content-section build-log-modern">
+            <div class="container build-log-container">
+                <aside class="build-log-sidebar">
+                    <nav class="build-log-nav">
+                        <ul class="nav-list">
+                            <li><a href="#overview" class="nav-link active">Overview</a></li>
+                            <li><a href="#things" class="nav-link">Things</a></li>
+                            <li><a href="#story" class="nav-link">Story</a></li>
+                            <li><a href="#introduction" class="nav-link">Introduction</a></li>
+                            <li><a href="#mechanical" class="nav-link">Mechanical Observations</a></li>
+                            <li><a href="#custom-parts" class="nav-link">Custom Parts</a></li>
+                            <li><a href="#code" class="nav-link">Code</a></li>
+                            <li><a href="#credits" class="nav-link">Credits</a></li>
+                        </ul>
+                    </nav>
+                </aside>
+                <div class="build-log-main">
+                    <div class="build-log-content-modern">
+                        <!-- Overview Section -->
+                        <section id="overview" class="build-log-section scroll-slide-left">
+                            <div class="section-header">
+                                <h2>Overview</h2>
+                            </div>
+                            <div class="section-content">
+                                <p>TarsX is an ambitious project to create a functional replica of TARS, the iconic robot from the movie Interstellar. This project combines cutting-edge robotics, artificial intelligence, and innovative engineering to bring this beloved character to life.</p>
+                                <p>Our mission is to blur the line between science fiction and reality, demonstrating that with passion, curiosity, and persistence, even the most ambitious ideas can become tangible creations. TarsX represents more than just a robot—it's a statement that the future belongs to those who dare to create it.</p>
+                                <p>This build log documents the entire journey from initial concept to working prototype, sharing insights, challenges, and breakthroughs along the way. Whether you're a robotics enthusiast, a maker, or simply curious about the intersection of art and technology, this project offers something for everyone.</p>
+                            </div>
+                        </section>
 
-                    <div class="log-entry scroll-fade-in-delay">
-                        <div class="log-date">2024-12-15</div>
-                        <div class="log-content">
-                            <h3>Beta Testing Phase</h3>
-                            <p>Launched beta testing program with selected users. Gathering valuable feedback for final release.</p>
-                        </div>
-                    </div>
+                        <!-- Things Section -->
+                        <section id="things" class="build-log-section scroll-fade-in-delay">
+                            <div class="section-header">
+                                <h2>Things</h2>
+                            </div>
+                            <div class="section-content">
+                                <p>To build your own TarsX, you'll need a combination of hardware components, software tools, and custom parts. Here's a comprehensive list of what's required:</p>
+                                <h3>Hardware Components</h3>
+                                <ul>
+                                    <li>Raspberry Pi 4 (8GB recommended) or similar single-board computer</li>
+                                    <li>Arduino Mega or compatible microcontroller</li>
+                                    <li>Stepper motors with drivers (NEMA 17 or similar)</li>
+                                    <li>Servo motors for precise movements</li>
+                                    <li>Various sensors (ultrasonic, IMU, proximity sensors)</li>
+                                    <li>LED displays and status indicators</li>
+                                    <li>Power management system (batteries, regulators)</li>
+                                    <li>3D printed structural components</li>
+                                    <li>Aluminum or composite materials for frame</li>
+                                    <li>Wiring, connectors, and mounting hardware</li>
+                                </ul>
+                                <h3>Software & Tools</h3>
+                                <ul>
+                                    <li>Python 3.x for main control system</li>
+                                    <li>Arduino IDE for microcontroller programming</li>
+                                    <li>ROS (Robot Operating System) for advanced features</li>
+                                    <li>CAD software for design (Fusion 360, SolidWorks)</li>
+                                    <li>3D printing software (Cura, PrusaSlicer)</li>
+                                    <li>Version control (Git) for code management</li>
+                                </ul>
+                            </div>
+                        </section>
 
-                    <div class="log-entry scroll-fade-in-delay">
-                        <div class="log-date">2024-12-10</div>
-                        <div class="log-content">
-                            <h3>Version 2.0.5 Released</h3>
-                            <p>Minor update focusing on:</p>
-                            <ul>
-                                <li>Performance optimizations</li>
-                                <li>UI/UX improvements</li>
-                                <li>Security patches</li>
-                            </ul>
-                        </div>
-                    </div>
+                        <!-- Story Section -->
+                        <section id="story" class="build-log-section scroll-fade-in-delay">
+                            <div class="section-header">
+                                <h2>Story</h2>
+                            </div>
+                            <div class="section-content">
+                                <p>The inspiration for TarsX came from watching Interstellar and being captivated by TARS—a robot that was both functional and had personality. Unlike typical movie robots, TARS was designed to be practical, reliable, and even humorous.</p>
+                                <p>What started as a simple "wouldn't it be cool if..." conversation evolved into a full-fledged project. The challenge wasn't just about building a robot that looked like TARS, but one that could actually function, move, and interact in meaningful ways.</p>
+                                <p>Throughout this journey, we've encountered countless obstacles—from mechanical design challenges to software integration issues. Each problem solved has been a learning opportunity, pushing us to think creatively and find innovative solutions.</p>
+                                <p>The project has grown beyond just building a robot. It's become a community effort, with contributors sharing ideas, code, and support. This collaborative spirit is what makes TarsX special—it's not just a project, it's a movement.</p>
+                            </div>
+                        </section>
 
-                    <div class="log-entry scroll-fade-in-delay">
-                        <div class="log-date">2024-12-05</div>
-                        <div class="log-content">
-                            <h3>Development Milestone</h3>
-                            <p>Completed major refactoring of core components. Improved code maintainability and scalability.</p>
-                        </div>
-                    </div>
+                        <!-- Introduction Section -->
+                        <section id="introduction" class="build-log-section scroll-fade-in-delay">
+                            <div class="section-header">
+                                <h2>Introduction</h2>
+                            </div>
+                            <div class="section-content">
+                                <p>Welcome to the TarsX build log. This comprehensive guide will walk you through every aspect of building your own TARS replica, from initial planning to final assembly.</p>
+                                <p>TarsX is designed to be modular and accessible. Whether you're an experienced robotics engineer or a curious beginner, this project is structured to accommodate different skill levels. Each section builds upon the previous one, creating a logical progression from concept to completion.</p>
+                                <p>The project is divided into several key phases:</p>
+                                <ul>
+                                    <li><strong>Design & Planning:</strong> Understanding the requirements and creating detailed specifications</li>
+                                    <li><strong>Mechanical Design:</strong> Creating the physical structure and movement systems</li>
+                                    <li><strong>Electronics Integration:</strong> Wiring, sensors, and control systems</li>
+                                    <li><strong>Software Development:</strong> Programming behaviors, AI, and user interfaces</li>
+                                    <li><strong>Testing & Refinement:</strong> Iterative improvement based on real-world testing</li>
+                                </ul>
+                                <p>This build log serves as both documentation and a learning resource. Feel free to adapt, modify, and improve upon these designs. Innovation happens when we build on each other's work.</p>
+                            </div>
+                        </section>
 
-                    <div class="log-entry scroll-fade-in-delay">
-                        <div class="log-date">2024-11-28</div>
-                        <div class="log-content">
-                            <h3>Version 2.0.0 Released</h3>
-                            <p>Major release with significant changes:</p>
-                            <ul>
-                                <li>Complete UI redesign</li>
-                                <li>New architecture implementation</li>
-                                <li>Enhanced feature set</li>
-                                <li>Improved documentation</li>
-                            </ul>
-                        </div>
-                    </div>
+                        <!-- Mechanical Observations Section -->
+                        <section id="mechanical" class="build-log-section scroll-fade-in-delay">
+                            <div class="section-header">
+                                <h2>Mechanical Observations</h2>
+                            </div>
+                            <div class="section-content">
+                                <p>One of the most fascinating aspects of TARS is its unique mechanical design. Unlike traditional humanoid robots, TARS uses a modular block system that allows for incredible flexibility and stability.</p>
+                                <h3>Key Mechanical Features</h3>
+                                <ul>
+                                    <li><strong>Modular Block Design:</strong> Each segment can move independently, allowing for complex configurations</li>
+                                    <li><strong>Wide Base Stability:</strong> The rectangular base provides excellent stability for various positions</li>
+                                    <li><strong>Precision Joints:</strong> High-torque servos enable smooth, controlled movements</li>
+                                    <li><strong>Weight Distribution:</strong> Careful placement of components ensures balance in all configurations</li>
+                                </ul>
+                                <h3>Movement Capabilities</h3>
+                                <p>TarsX can achieve several key movements inspired by the original TARS:</p>
+                                <ul>
+                                    <li>Standing upright in a rectangular configuration</li>
+                                    <li>Folding into a compact form for storage</li>
+                                    <li>Reconfiguring segments for different tasks</li>
+                                    <li>Stable movement across various terrains</li>
+                                </ul>
+                                <p>Early prototypes revealed that the mechanical design needed to balance between flexibility and structural integrity. Too much flexibility meant instability, while too much rigidity limited movement capabilities. The final design represents an optimal compromise.</p>
+                            </div>
+                        </section>
 
-                    <div class="log-entry scroll-fade-in-delay">
-                        <div class="log-date">2024-11-20</div>
-                        <div class="log-content">
-                            <h3>Development Update</h3>
-                            <p>Working on new features and preparing for upcoming release. Stay tuned for more updates!</p>
-                        </div>
+                        <!-- Custom Parts Section -->
+                        <section id="custom-parts" class="build-log-section scroll-fade-in-delay">
+                            <div class="section-header">
+                                <h2>Custom Parts</h2>
+                            </div>
+                            <div class="section-content">
+                                <p>Many components of TarsX require custom fabrication. This section details the custom parts needed and how to create them.</p>
+                                <h3>3D Printed Components</h3>
+                                <ul>
+                                    <li><strong>Segment Blocks:</strong> Main structural elements, printed in PETG or ABS for durability</li>
+                                    <li><strong>Joint Housings:</strong> Custom enclosures for servo motors and linkages</li>
+                                    <li><strong>Mounting Brackets:</strong> Secure attachment points for electronics and sensors</li>
+                                    <li><strong>Cable Management:</strong> Channels and guides for clean wire routing</li>
+                                    <li><strong>Display Frames:</strong> Custom frames for LED displays and status indicators</li>
+                                </ul>
+                                <h3>Machined Components</h3>
+                                <ul>
+                                    <li><strong>Aluminum Frame:</strong> Main structural frame for rigidity and weight reduction</li>
+                                    <li><strong>Precision Shafts:</strong> For smooth rotational movements</li>
+                                    <li><strong>Custom Brackets:</strong> Metal brackets for high-stress connection points</li>
+                                </ul>
+                                <h3>Electronics Enclosures</h3>
+                                <p>Custom enclosures protect sensitive electronics while maintaining accessibility for maintenance and upgrades. These are designed with ventilation, cable routing, and modularity in mind.</p>
+                                <p>All CAD files and 3D printing instructions are available in the project repository, allowing you to manufacture these parts yourself or through a service.</p>
+                            </div>
+                        </section>
+
+                        <!-- Code Section -->
+                        <section id="code" class="build-log-section scroll-fade-in-delay">
+                            <div class="section-header">
+                                <h2>Code</h2>
+                            </div>
+                            <div class="section-content">
+                                <p>The software architecture of TarsX is built on a modular foundation, allowing for easy expansion and customization.</p>
+                                <h3>Core Systems</h3>
+                                <ul>
+                                    <li><strong>Motion Control:</strong> Precise control of all servos and motors for smooth movements</li>
+                                    <li><strong>Sensor Integration:</strong> Processing data from various sensors for environmental awareness</li>
+                                    <li><strong>AI Behavior Engine:</strong> Decision-making system for autonomous behaviors</li>
+                                    <li><strong>Communication Layer:</strong> Interface for remote control and monitoring</li>
+                                    <li><strong>User Interface:</strong> Display management and status reporting</li>
+                                </ul>
+                                <h3>Programming Languages</h3>
+                                <ul>
+                                    <li><strong>Python:</strong> Main control system and high-level logic</li>
+                                    <li><strong>C++:</strong> Performance-critical components and real-time control</li>
+                                    <li><strong>Arduino:</strong> Low-level motor control and sensor reading</li>
+                                </ul>
+                                <h3>Key Features</h3>
+                                <ul>
+                                    <li>Modular code structure for easy maintenance</li>
+                                    <li>Comprehensive error handling and recovery</li>
+                                    <li>Extensive logging for debugging</li>
+                                    <li>Plugin architecture for custom behaviors</li>
+                                    <li>RESTful API for external integration</li>
+                                </ul>
+                                <p>The codebase is open-source and available on GitHub. Contributions, bug reports, and feature requests are always welcome. Documentation is continuously updated to help new developers get started quickly.</p>
+                            </div>
+                        </section>
+
+                        <!-- Credits Section -->
+                        <section id="credits" class="build-log-section scroll-fade-in-delay">
+                            <div class="section-header">
+                                <h2>Credits</h2>
+                            </div>
+                            <div class="section-content">
+                                <p>TarsX is a community-driven project that wouldn't be possible without the contributions of many talented individuals and organizations.</p>
+                                <h3>Core Team</h3>
+                                <ul>
+                                    <li><strong>Project Lead:</strong> Vision and overall direction</li>
+                                    <li><strong>Mechanical Engineering:</strong> Design and fabrication expertise</li>
+                                    <li><strong>Software Development:</strong> Programming and AI implementation</li>
+                                    <li><strong>Electronics Design:</strong> Circuit design and integration</li>
+                                </ul>
+                                <h3>Community Contributors</h3>
+                                <p>Special thanks to all the community members who have contributed code, designs, documentation, testing, and feedback. Your involvement makes this project better with each iteration.</p>
+                                <h3>Inspiration & References</h3>
+                                <ul>
+                                    <li>Interstellar (2014) - Christopher Nolan, for the original TARS design</li>
+                                    <li>Open-source robotics community for tools and frameworks</li>
+                                    <li>Maker community for inspiration and support</li>
+                                </ul>
+                                <h3>Open Source Libraries</h3>
+                                <p>This project uses numerous open-source libraries and frameworks. We're grateful to all the developers who make their work available to the community. A complete list of dependencies and licenses is available in the project repository.</p>
+                                <p>If you'd like to contribute to TarsX, whether through code, documentation, testing, or financial support, we'd love to have you join us. Together, we're building something extraordinary.</p>
+                            </div>
+                        </section>
                     </div>
                 </div>
+                <aside class="build-log-sidebar-right">
+                    <div class="sidebar-section">
+                        <h3>Other Projects</h3>
+                        <div class="project-list">
+                            <a href="dronx.html" class="project-item">
+                                <div class="project-thumbnail">
+                                    <div class="project-placeholder">📦</div>
+                                </div>
+                                <div class="project-info">
+                                    <h4>DronX</h4>
+                                    <p>Autonomous flight technology</p>
+                                </div>
+                            </a>
+                            <div class="project-item">
+                                <div class="project-thumbnail">
+                                    <div class="project-placeholder">🤖</div>
+                                </div>
+                                <div class="project-info">
+                                    <h4>TARS AI</h4>
+                                    <p>AI-powered assistant</p>
+                                </div>
+                            </div>
+                            <div class="project-item">
+                                <div class="project-thumbnail">
+                                    <div class="project-placeholder">🚀</div>
+                                </div>
+                                <div class="project-info">
+                                    <h4>Space Explorer</h4>
+                                    <p>Virtual space simulation</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
             </div>
         </section>
     </main>
@@ -126,6 +302,65 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        // Build Log Sidebar Navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.build-log-nav .nav-link');
+            const sections = document.querySelectorAll('.build-log-section');
+            
+            // Handle navigation clicks
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Remove active class from all links
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    
+                    // Add active class to clicked link
+                    this.classList.add('active');
+                    
+                    // Smooth scroll to section
+                    const targetId = this.getAttribute('href');
+                    if (targetId && targetId !== '#') {
+                        const targetElement = document.querySelector(targetId);
+                        if (targetElement) {
+                            const offset = 100; // Offset for fixed navbar
+                            const elementPosition = targetElement.getBoundingClientRect().top;
+                            const offsetPosition = elementPosition + window.pageYOffset - offset;
+                            
+                            window.scrollTo({
+                                top: offsetPosition,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
+            
+            // Update active link on scroll
+            function updateActiveLink() {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.getBoundingClientRect().top;
+                    const sectionId = section.getAttribute('id');
+                    if (sectionTop <= 150) {
+                        current = sectionId;
+                    }
+                });
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === '#' + current) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+            
+            // Update on scroll
+            window.addEventListener('scroll', updateActiveLink);
+            updateActiveLink(); // Initial check
+        });
+    </script>
     <script>
         // Create moving stars
         const starsContainer = document.getElementById('stars-container');

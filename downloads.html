@@ -45,76 +45,292 @@
             </div>
         </section>
 
-        <section class="content-section">
-            <div class="container">
-                <div class="downloads-content">
-                    <div class="download-card featured scroll-fade-in">
-                        <div class="download-header">
-                            <h2>Latest Release</h2>
-                            <span class="version-badge">v2.1.0</span>
-                        </div>
-                        <p class="release-date">Released: December 20, 2024</p>
-                        <p class="download-description">
-                            The latest stable release with enhanced features, improved performance, and security updates.
-                        </p>
-                        <div class="download-options">
-                            <a href="#" class="btn btn-primary">Download for Windows</a>
-                            <a href="#" class="btn btn-primary">Download for macOS</a>
-                            <a href="#" class="btn btn-primary">Download for Linux</a>
-                        </div>
-                        <div class="download-info">
-                            <p><strong>System Requirements:</strong></p>
-                            <ul>
-                                <li>Windows 10/11, macOS 11+, or Linux (Ubuntu 20.04+)</li>
-                                <li>4GB RAM minimum (8GB recommended)</li>
-                                <li>500MB free disk space</li>
-                            </ul>
-                        </div>
-                    </div>
+        <section class="content-section downloads-modern">
+            <div class="container downloads-container">
+                <aside class="downloads-sidebar">
+                    <nav class="downloads-nav">
+                        <ul class="nav-list">
+                            <li><a href="#downloads" class="nav-link active">Core Downloads</a></li>
+                            <li><a href="#guides" class="nav-link">Guides & 3D Files</a></li>
+                            <li><a href="#components" class="nav-link">Required Components</a></li>
+                        </ul>
+                    </nav>
+                </aside>
+                <div class="downloads-main">
+                    <div class="downloads-content-modern">
+                        <!-- Core Downloads Section -->
+                        <section id="downloads" class="downloads-section scroll-slide-left">
+                            <div class="section-intro">
+                                <h2>Core Downloads</h2>
+                                <p>Grab the essentials you need to get your TARS project running.</p>
+                            </div>
 
-                    <div class="previous-releases scroll-fade-in-delay">
-                        <h2>Previous Releases</h2>
-                        <div class="release-list">
-                            <div class="release-item scroll-fade-in-delay">
-                                <div class="release-info">
-                                    <h3>Version 2.0.5</h3>
-                                    <span class="release-date">December 10, 2024</span>
+                            <!-- TARS Source Code -->
+                            <div class="download-item-card scroll-fade-in-delay">
+                                <div class="download-item-header">
+                                    <h3>TARS Source Code</h3>
                                 </div>
-                                <a href="#" class="btn btn-secondary">Download</a>
+                                <p class="download-item-desc">Full GitHub repository with the latest scripts and updates.</p>
+                                <a href="#" class="btn-modern">
+                                    <span>Open GitHub</span>
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                        <path d="M4 10H16M16 10L12 6M16 10L12 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                    </svg>
+                                </a>
                             </div>
-                            <div class="release-item scroll-fade-in-delay">
-                                <div class="release-info">
-                                    <h3>Version 2.0.0</h3>
-                                    <span class="release-date">November 28, 2024</span>
-                                </div>
-                                <a href="#" class="btn btn-secondary">Download</a>
-                            </div>
-                            <div class="release-item scroll-fade-in-delay">
-                                <div class="release-info">
-                                    <h3>Version 1.9.0</h3>
-                                    <span class="release-date">October 15, 2024</span>
-                                </div>
-                                <a href="#" class="btn btn-secondary">Download</a>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="beta-section scroll-fade-in-delay">
-                        <h2>Beta Releases</h2>
-                        <div class="beta-notice">
-                            <p><strong>Note:</strong> Beta releases may contain bugs and are not recommended for production use.</p>
-                        </div>
-                        <div class="release-list">
-                            <div class="release-item scroll-fade-in-delay">
-                                <div class="release-info">
-                                    <h3>Beta 2.2.0</h3>
-                                    <span class="release-date">December 18, 2024</span>
-                                </div>
-                                <a href="#" class="btn btn-secondary">Download</a>
+                        </section>
+
+                        <!-- Guides & 3D Files Section -->
+                        <section id="guides" class="downloads-section scroll-fade-in-delay">
+                            <div class="section-intro">
+                                <h2>Guides & 3D Files</h2>
+                                <p>Simple references and printable parts to help you build faster.</p>
                             </div>
-                        </div>
+
+                            <div class="guides-grid">
+                                <div class="guide-card scroll-fade-in-delay">
+                                    <h4>Raspberry Pi Setup</h4>
+                                    <p>Flash the OS, install dependencies, and prep your Pi for TARS.</p>
+                                    <a href="#" class="btn-modern-secondary">View Guide</a>
+                                </div>
+
+                                <div class="guide-card scroll-fade-in-delay">
+                                    <h4>API Keys Walkthrough</h4>
+                                    <p>Secure OpenAI, AWS Polly, and OpenWeatherMap credentials.</p>
+                                    <a href="#" class="btn-modern-secondary">View Guide</a>
+                                </div>
+
+                                <div class="guide-card scroll-fade-in-delay">
+                                    <h4>TARSmaster Mode</h4>
+                                    <p>All-in-one desktop workflow with console, voice, and controller.</p>
+                                    <a href="#" class="btn-modern-secondary">View Guide</a>
+                                </div>
+
+                                <div class="guide-card scroll-fade-in-delay">
+                                    <h4>Bundle Mode (Modular)</h4>
+                                    <p>Lightweight Pi scripts for voice, controller, and motion control.</p>
+                                    <a href="#" class="btn-modern-secondary">View Guide</a>
+                                </div>
+
+                                <div class="guide-card scroll-fade-in-delay">
+                                    <h4>Controller Setup</h4>
+                                    <p>Use evtest to identify the controller event path and wire it into the scripts.</p>
+                                    <a href="#" class="btn-modern-secondary">View Guide</a>
+                                </div>
+
+                                <div class="guide-card scroll-fade-in-delay">
+                                    <h4>TARS Parts Bundle (ZIP)</h4>
+                                    <p>All 3D-printable parts and STLs for the chassis (~5.5 MB).</p>
+                                    <a href="#" class="btn-modern-secondary">Download ZIP</a>
+                                </div>
+
+                                <div class="guide-card scroll-fade-in-delay">
+                                    <h4>Hardware Wiring Guide (PDF)</h4>
+                                    <p>PCA9685, servo, and power connections for the physical build (~260 KB).</p>
+                                    <a href="#" class="btn-modern-secondary">Download PDF</a>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Required Components Section -->
+                        <section id="components" class="downloads-section scroll-fade-in-delay">
+                            <div class="section-intro">
+                                <h2>Required Components</h2>
+                                <p>A curated shopping list—every link below helps keep the project alive.</p>
+                            </div>
+
+                            <div class="components-grid">
+                                <div class="component-card scroll-fade-in-delay">
+                                    <div class="component-header">
+                                        <h4>Raspberry Pi 5</h4>
+                                        <span class="component-qty">Qty x1</span>
+                                    </div>
+                                    <p class="component-desc">Brains of TARS</p>
+                                    <a href="#" class="btn-modern-secondary">View Item</a>
+                                </div>
+
+                                <div class="component-card scroll-fade-in-delay">
+                                    <div class="component-header">
+                                        <h4>Metal Gear Servo LD-3015MG</h4>
+                                        <span class="component-qty">Qty x3</span>
+                                    </div>
+                                    <p class="component-desc">High torque arm servos</p>
+                                    <a href="#" class="btn-modern-secondary">View Item</a>
+                                </div>
+
+                                <div class="component-card scroll-fade-in-delay">
+                                    <div class="component-header">
+                                        <h4>12V to 5V DC-DC Converter</h4>
+                                        <span class="component-qty">Qty x1</span>
+                                    </div>
+                                    <p class="component-desc">Stable power for servos</p>
+                                    <a href="#" class="btn-modern-secondary">View Item</a>
+                                </div>
+
+                                <div class="component-card scroll-fade-in-delay">
+                                    <div class="component-header">
+                                        <h4>5" LCD Display</h4>
+                                        <span class="component-qty">Qty x1</span>
+                                    </div>
+                                    <p class="component-desc">Compact screen for media and status</p>
+                                    <a href="#" class="btn-modern-secondary">View Item</a>
+                                </div>
+
+                                <div class="component-card scroll-fade-in-delay">
+                                    <div class="component-header">
+                                        <h4>Servo Driver</h4>
+                                        <span class="component-qty">Qty x1</span>
+                                    </div>
+                                    <p class="component-desc">Control multiple servos with ease</p>
+                                    <a href="#" class="btn-modern-secondary">View Item</a>
+                                </div>
+
+                                <div class="component-card scroll-fade-in-delay">
+                                    <div class="component-header">
+                                        <h4>Mini USB Microphone</h4>
+                                        <span class="component-qty">Qty x1</span>
+                                    </div>
+                                    <p class="component-desc">Let TARS hear your commands</p>
+                                    <a href="#" class="btn-modern-secondary">View Item</a>
+                                </div>
+
+                                <div class="component-card scroll-fade-in-delay">
+                                    <div class="component-header">
+                                        <h4>Mini Bluetooth Speaker</h4>
+                                        <span class="component-qty">Qty x1</span>
+                                    </div>
+                                    <p class="component-desc">Give TARS a voice</p>
+                                    <a href="#" class="btn-modern-secondary">View Item</a>
+                                </div>
+
+                                <div class="component-card scroll-fade-in-delay">
+                                    <div class="component-header">
+                                        <h4>XT60 Connector Cables</h4>
+                                        <span class="component-qty">Qty x1</span>
+                                    </div>
+                                    <p class="component-desc">Male and female pair for power runs</p>
+                                    <a href="#" class="btn-modern-secondary">View Item</a>
+                                </div>
+
+                                <div class="component-card scroll-fade-in-delay">
+                                    <div class="component-header">
+                                        <h4>Micro HDMI to HDMI Cable</h4>
+                                        <span class="component-qty">Qty x1</span>
+                                    </div>
+                                    <p class="component-desc">Link the Pi to your display</p>
+                                    <a href="#" class="btn-modern-secondary">View Item</a>
+                                </div>
+
+                                <div class="component-card scroll-fade-in-delay">
+                                    <div class="component-header">
+                                        <h4>LiPo Battery 1300 mAh</h4>
+                                        <span class="component-qty">Qty x1</span>
+                                    </div>
+                                    <p class="component-desc">11.1V 76C pack for servos</p>
+                                    <a href="#" class="btn-modern-secondary">View Item</a>
+                                </div>
+
+                                <div class="component-card scroll-fade-in-delay">
+                                    <div class="component-header">
+                                        <h4>Powerbank</h4>
+                                        <span class="component-qty">Qty x1</span>
+                                    </div>
+                                    <p class="component-desc">Repurpose for portable power</p>
+                                    <a href="#" class="btn-modern-secondary">View Item</a>
+                                </div>
+
+                                <div class="component-card scroll-fade-in-delay">
+                                    <div class="component-header">
+                                        <h4>LiPo Battery Charger</h4>
+                                        <span class="component-qty">Qty x1</span>
+                                    </div>
+                                    <p class="component-desc">Compatible with 2 and 3 pin packs</p>
+                                    <a href="#" class="btn-modern-secondary">View Item</a>
+                                </div>
+
+                                <div class="component-card scroll-fade-in-delay">
+                                    <div class="component-header">
+                                        <h4>8BitDo Controller</h4>
+                                        <span class="component-qty">Qty x1</span>
+                                    </div>
+                                    <p class="component-desc">Handheld control for motion</p>
+                                    <a href="#" class="btn-modern-secondary">View Item</a>
+                                </div>
+
+                                <div class="component-card scroll-fade-in-delay">
+                                    <div class="component-header">
+                                        <h4>Mini Keyboard + Touchpad</h4>
+                                        <span class="component-qty">Qty x1</span>
+                                    </div>
+                                    <p class="component-desc">Lightweight input device</p>
+                                    <a href="#" class="btn-modern-secondary">View Item</a>
+                                </div>
+
+                                <div class="component-card scroll-fade-in-delay">
+                                    <div class="component-header">
+                                        <h4>Machine Screws M3</h4>
+                                        <span class="component-qty">Qty x1</span>
+                                    </div>
+                                    <p class="component-desc">Hardware to lock everything in place</p>
+                                    <a href="#" class="btn-modern-secondary">View Item</a>
+                                </div>
+
+                                <div class="component-card scroll-fade-in-delay">
+                                    <div class="component-header">
+                                        <h4>Soldering Kit</h4>
+                                        <span class="component-qty">Qty x1</span>
+                                    </div>
+                                    <p class="component-desc">Everything needed for clean joints</p>
+                                    <a href="#" class="btn-modern-secondary">View Item</a>
+                                </div>
+
+                                <div class="component-card scroll-fade-in-delay">
+                                    <div class="component-header">
+                                        <h4>Metal Rods</h4>
+                                        <span class="component-qty">Qty x1</span>
+                                    </div>
+                                    <p class="component-desc">100 mm by 4.6 mm rods for linkages</p>
+                                    <a href="#" class="btn-modern-secondary">View Item</a>
+                                </div>
+
+                                <div class="component-card scroll-fade-in-delay">
+                                    <div class="component-header">
+                                        <h4>Ender 3D Printer</h4>
+                                        <span class="component-qty">Qty x1</span>
+                                    </div>
+                                    <p class="component-desc">Affordable, builder-friendly printer</p>
+                                    <a href="#" class="btn-modern-secondary">View Item</a>
+                                </div>
+                            </div>
+                        </section>
                     </div>
                 </div>
+                <aside class="downloads-sidebar-right">
+                    <div class="sidebar-section">
+                        <h3>Other Projects</h3>
+                        <div class="project-list">
+                            <a href="dronx.html" class="project-item">
+                                <div class="project-thumbnail">
+                                    <div class="project-placeholder">📦</div>
+                                </div>
+                                <div class="project-info">
+                                    <h4>DronX</h4>
+                                    <p>Autonomous flight technology</p>
+                                </div>
+                            </a>
+                            <div class="project-item">
+                                <div class="project-thumbnail">
+                                    <div class="project-placeholder">🤖</div>
+                                </div>
+                                <div class="project-info">
+                                    <h4>TARS AI</h4>
+                                    <p>AI-powered assistant</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
             </div>
         </section>
     </main>
@@ -128,6 +344,64 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        // Downloads Page Navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.downloads-nav .nav-link');
+            const sections = document.querySelectorAll('.downloads-section');
+            
+            // Handle navigation clicks
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Remove active class from all links
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    
+                    // Add active class to clicked link
+                    this.classList.add('active');
+                    
+                    // Smooth scroll to section
+                    const targetId = this.getAttribute('href');
+                    if (targetId && targetId !== '#') {
+                        const targetElement = document.querySelector(targetId);
+                        if (targetElement) {
+                            const offset = 100;
+                            const elementPosition = targetElement.getBoundingClientRect().top;
+                            const offsetPosition = elementPosition + window.pageYOffset - offset;
+                            
+                            window.scrollTo({
+                                top: offsetPosition,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
+            
+            // Update active link on scroll
+            function updateActiveLink() {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.getBoundingClientRect().top;
+                    const sectionId = section.getAttribute('id');
+                    if (sectionTop <= 150) {
+                        current = sectionId;
+                    }
+                });
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === '#' + current) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', updateActiveLink);
+            updateActiveLink();
+        });
+    </script>
     <script>
         // Create moving stars
         const starsContainer = document.getElementById('stars-container');

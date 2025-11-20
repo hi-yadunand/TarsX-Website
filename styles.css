@@ -25,6 +25,23 @@
     font-style: normal;
 }
 
+/* Montserrat Font */
+@font-face {
+    font-family: 'Montserrat';
+    src: url('Montserrat/Montserrat-VariableFont_wght.ttf') format('truetype');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('Montserrat/Montserrat-Italic-VariableFont_wght.ttf') format('truetype');
+    font-weight: 100 900;
+    font-style: italic;
+    font-display: swap;
+}
+
 html {
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none; /* IE and Edge */
@@ -35,7 +52,7 @@ html::-webkit-scrollbar {
 }
 
 body {
-    font-family: 'Nasalization', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     color: var(--text-color);
     font-size: 16px;
     line-height: 1.5;
@@ -215,14 +232,14 @@ body::-webkit-scrollbar {
 .nav-menu {
     display: flex;
     list-style: none;
-    gap: 2rem;
+    gap: 3rem;
 }
 
 .nav-menu a {
     color: #FFFFFF;
     text-decoration: none;
     font-weight: 500;
-    font-size: 0.9375rem;
+    font-size: 0.90rem;
     text-transform: uppercase;
     transition: color 0.3s;
 }
@@ -232,46 +249,63 @@ body::-webkit-scrollbar {
     color: var(--primary-color);
 }
 
-/* Projects hover tooltip - DronX */
-.nav-menu a[href="dronx.html"] {
+/* Projects dropdown menu */
+.nav-menu li {
     position: relative;
-    padding-bottom: 35px; /* Expand clickable area to include tooltip */
 }
 
-.nav-menu a[href="dronx.html"]::after {
-    content: 'DronX';
+.nav-menu .dropdown {
+    position: relative;
+}
+
+.nav-menu .dropdown-menu {
     position: absolute;
-    bottom: 5px;
+    top: 100%;
     left: 50%;
-    transform: translateX(-50%);
-    color: #FFFFFF;
-    font-size: 0.8rem;
-    white-space: nowrap;
-    pointer-events: auto;
-    cursor: pointer;
-    z-index: 1001;
+    transform: translateX(-50%) translateY(-10px);
+    background: rgba(0, 0, 0, 0);
+    list-style: none;
+    padding: 0.1rem 0;
+    margin: 0;
+    min-width: 120px;
     opacity: 0;
-    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, color 0.3s ease-in-out;
-    text-align: center;
+    visibility: hidden;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out, max-height 0.3s ease-in-out, transform 0.3s ease-in-out;
+    border-radius: 4px;
+    z-index: 1001;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
-/* Toggled state - always visible */
-.nav-menu a[href="dronx.html"].tooltip-visible::after {
+.nav-menu .dropdown:hover .dropdown-menu {
     opacity: 1;
-    transform: translateX(-50%);
+    visibility: visible;
+    max-height: 200px;
+    transform: translateX(-50%) translateY(0);
+}
+
+.nav-menu .dropdown-menu li {
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+
+.nav-menu .dropdown-menu a {
+    display: block;
+    padding: 0.3rem 1.5rem;
     color: #FFFFFF;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.90rem;
+    text-transform: uppercase;
+    transition: color 0.3s, background-color 0.3s;
+    white-space: nowrap;
 }
 
-.nav-menu a[href="dronx.html"]:hover::after {
-    opacity: 1;
-    transform: translateX(-50%);
+.nav-menu .dropdown-menu a:hover {
     color: var(--primary-color);
-}
-
-/* When toggled AND hovered, use hover styles */
-.nav-menu a[href="dronx.html"].tooltip-visible:hover::after {
-    transform: translateX(-50%);
-    color: var(--primary-color);
+    background-color: rgba(255, 255, 255, 0.05);
 }
 
 .hamburger {
@@ -495,6 +529,7 @@ body::-webkit-scrollbar {
     grid-row: 1;
     align-self: center;
     margin-left: 32rem;
+    font-family: 'Nasalization', sans-serif;
 }
 
 .tars-content {
@@ -564,6 +599,7 @@ body::-webkit-scrollbar {
     grid-row: 1;
     align-self: end;
     justify-self: end;
+    font-family: 'Nasalization', sans-serif;
     font-size: 15rem;
     font-weight: 900;
     color: rgb(255, 255, 255);
@@ -1207,6 +1243,11 @@ footer {
     padding-right: 0px;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     color: rgba(255, 255, 255, 0.6);
+}
+
+/* Nasalization font for TARS, TarsX, and TARSX text */
+.nasalization-text {
+    font-family: 'Nasalization', sans-serif;
 }
 
 /* Responsive Design */

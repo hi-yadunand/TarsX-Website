@@ -173,6 +173,31 @@ body::-webkit-scrollbar {
     width: 100%;
 }
 
+/* Responsive Container Padding */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 16px;
+    }
+}
+
+@media (max-width: 360px) {
+    .container {
+        padding: 0 12px;
+    }
+}
+
 /* Navigation */
 .navbar {
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, transparent 100%);
@@ -2016,13 +2041,42 @@ body::-webkit-scrollbar {
     margin: 0;
 }
 
-/* Responsive */
+/* Responsive - Large Tablets and Small Desktops */
+@media (max-width: 1200px) {
+    .contact-grid {
+        gap: 3rem;
+    }
+    
+    .tars-container {
+        padding: 2rem;
+    }
+    
+    .tars-title {
+        font-size: 6rem;
+        margin-left: 20rem;
+    }
+}
+
+/* Responsive - Tablets */
 @media (max-width: 968px) {
     .contact-grid,
     .about-content-modern,
     .downloads-content-modern {
         grid-template-columns: 1fr;
         gap: 3rem;
+    }
+    
+    .contact-form-modern,
+    .contact-links-modern {
+        padding: 2rem;
+    }
+    
+    .nav-container {
+        padding: 1.5rem 20px;
+    }
+    
+    .nav-menu {
+        gap: 2rem;
     }
     
     .build-log-container,
@@ -2349,9 +2403,19 @@ footer {
         left: 0;
     }
 
+    .nav-menu li {
+        width: 100%;
+    }
+
     .nav-menu a {
         padding: 1rem;
         font-size: 1rem;
+        display: block;
+        width: 100%;
+    }
+
+    .nav-container {
+        padding: 1rem 20px;
     }
 
     .dropdown-menu {
@@ -2363,6 +2427,12 @@ footer {
         background: rgba(255, 255, 255, 0.05);
         margin-top: 0.5rem;
         border-radius: 8px;
+    }
+    
+    .nav-menu {
+        background-color: rgba(0, 0, 0, 0.95);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
     }
 
     /* Ensure full-viewport sections remain full-viewport on mobile */
@@ -2441,14 +2511,45 @@ footer {
     
     .page-header {
         padding: 3rem 0 2rem;
+        min-height: 80vh;
     }
     
     .page-header h1 {
         font-size: 2.25rem;
+        padding: 0 1rem;
+    }
+    
+    .page-subtitle {
+        padding: 0 1rem;
     }
     
     .content-section {
         padding: 2rem 0;
+    }
+    
+    .contact-modern {
+        padding: 2rem 0;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .resource-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 0 1rem;
+    }
+    
+    .hero-buttons .btn {
+        width: 100%;
+        text-align: center;
     }
     
     .time-display {
@@ -2468,12 +2569,93 @@ footer {
     .time-value {
         font-size: 0.7rem;
     }
+    
+    .page-header {
+        padding: 3rem 0 2rem;
+        min-height: 80vh;
+    }
+    
+    .page-header h1 {
+        font-size: 2.25rem;
+        padding: 0 1rem;
+    }
+    
+    .page-subtitle {
+        padding: 0 1rem;
+    }
+    
+    .content-section {
+        padding: 2rem 0;
+    }
+    
+    .contact-modern {
+        padding: 2rem 0;
+    }
+    
+    .contact-grid {
+        gap: 2rem;
+    }
+    
+    .contact-form-modern,
+    .contact-links-modern {
+        padding: 1.5rem;
+    }
+    
+    .form-group-modern input,
+    .form-group-modern textarea {
+        padding: 1.25rem 0.875rem 0.5rem 0.875rem;
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+    
+    .contact-link-card {
+        padding: 1.25rem;
+        gap: 1rem;
+    }
+    
+    .link-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 1.75rem;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .resource-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 0 1rem;
+    }
+    
+    .hero-buttons .btn {
+        width: 100%;
+        text-align: center;
+    }
 }
 
-/* Additional Mobile Responsive Styles */
+/* Additional Mobile Responsive Styles - Small Phones */
 @media (max-width: 480px) {
     .container {
-        padding: 1rem;
+        padding: 0 16px;
+    }
+    
+    .nav-container {
+        padding: 1rem 16px;
+    }
+    
+    .logo {
+        left: 16px;
+    }
+    
+    .hamburger {
+        right: 16px;
     }
     
     .page-header h1 {
@@ -2521,6 +2703,25 @@ footer {
     .dronx-card-modern,
     .support-coffee-modern {
         padding: 1.5rem;
+        border-radius: 16px;
+    }
+    
+    .form-header,
+    .links-header {
+        margin-bottom: 1.5rem;
+        padding-bottom: 1rem;
+    }
+    
+    .form-group-modern {
+        margin-bottom: 1.5rem;
+    }
+    
+    .contact-links-grid {
+        gap: 0.75rem;
+    }
+    
+    .response-info {
+        padding: 1.25rem;
     }
     
     .form-header h3,
@@ -2621,10 +2822,14 @@ footer {
     }
 }
 
-/* Tablet Styles */
+/* Medium Devices - Small Tablets and Large Phones */
 @media (min-width: 481px) and (max-width: 768px) {
     .container {
-        padding: 1.5rem;
+        padding: 0 24px;
+    }
+    
+    .nav-container {
+        padding: 1.25rem 24px;
     }
     
     .tars-title {
@@ -2637,13 +2842,26 @@ footer {
     
     .build-log-container,
     .downloads-container {
-        grid-template-columns: 200px 1fr 200px;
-        gap: 1.5rem;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .build-log-sidebar,
+    .build-log-sidebar-right,
+    .downloads-sidebar,
+    .downloads-sidebar-right {
+        position: relative;
+        top: 0;
     }
     
     .contact-grid {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: 2.5rem;
+    }
+    
+    .contact-form-modern,
+    .contact-links-modern {
+        padding: 2rem;
     }
     
     .guides-grid {
@@ -2653,10 +2871,80 @@ footer {
     .component-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+    
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .resource-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .page-header h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-content h1 {
+        font-size: 3rem;
+    }
 }
 
-/* Small Mobile Devices */
+/* Large Tablets and Small Desktops */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .container {
+        padding: 0 30px;
+    }
+    
+    .nav-container {
+        padding: 1.5rem 30px;
+    }
+    
+    .contact-grid {
+        gap: 3rem;
+    }
+    
+    .tars-title {
+        font-size: 6rem;
+        margin-left: 15rem;
+    }
+    
+    .tars-x {
+        font-size: 10rem;
+    }
+    
+    .build-log-container,
+    .downloads-container {
+        grid-template-columns: 250px 1fr 250px;
+        gap: 2rem;
+    }
+    
+    .guides-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Small Mobile Devices - Extra Small Phones */
 @media (max-width: 360px) {
+    .container {
+        padding: 0 12px;
+    }
+    
+    .nav-container {
+        padding: 0.875rem 12px;
+    }
+    
+    .logo {
+        left: 12px;
+    }
+    
+    .hamburger {
+        right: 12px;
+    }
+    
     .logo a img {
         height: 40px;
         max-width: 180px;
@@ -2664,6 +2952,12 @@ footer {
     
     .hero-content h1 {
         font-size: 1.75rem;
+        padding: 0 0.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 0.95rem;
+        padding: 0 0.5rem;
     }
     
     .tars-title {
@@ -2674,8 +2968,19 @@ footer {
         font-size: 4rem;
     }
     
+    .tars-description {
+        font-size: 0.85rem;
+        padding: 0 0.5rem;
+    }
+    
     .page-header h1 {
         font-size: 1.75rem;
+        padding: 0 0.5rem;
+    }
+    
+    .page-subtitle {
+        font-size: 0.9rem;
+        padding: 0 0.5rem;
     }
     
     .section-intro h2,
@@ -2683,15 +2988,46 @@ footer {
         font-size: 1.5rem;
     }
     
-    .container {
-        padding: 0.75rem;
-    }
-    
     .contact-form-modern,
     .contact-links-modern,
     .about-card-modern,
     .dronx-card-modern {
         padding: 1rem;
+        border-radius: 14px;
+    }
+    
+    .form-header h3,
+    .links-header h3,
+    .card-header h3 {
+        font-size: 1.1rem;
+    }
+    
+    .contact-link-card {
+        padding: 0.875rem;
+        gap: 0.75rem;
+    }
+    
+    .link-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.5rem;
+    }
+    
+    .btn-modern {
+        padding: 0.875rem 1.25rem;
+        font-size: 0.875rem;
+    }
+}
+
+/* Large Desktop and Above */
+@media (min-width: 1025px) and (max-width: 1399px) {
+    .container {
+        max-width: 1200px;
+        padding: 0 40px;
+    }
+    
+    .contact-grid {
+        max-width: 1100px;
     }
 }
 
@@ -2699,11 +3035,28 @@ footer {
 @media (min-width: 1400px) {
     .container {
         max-width: 1400px;
+        padding: 0 40px;
     }
     
     .build-log-container,
     .downloads-container {
         max-width: 1800px;
+    }
+    
+    .contact-grid {
+        max-width: 1200px;
+    }
+}
+
+/* Extra Large Desktop */
+@media (min-width: 1920px) {
+    .container {
+        max-width: 1600px;
+    }
+    
+    .build-log-container,
+    .downloads-container {
+        max-width: 2000px;
     }
 }
 
@@ -2715,8 +3068,13 @@ footer {
         padding: 2rem 0;
     }
     
+    .page-header {
+        min-height: 70vh;
+    }
+    
     .tars-container {
         gap: 1.5rem;
+        padding: 1.5rem;
     }
     
     .tars-title {
@@ -2725,6 +3083,38 @@ footer {
     
     .tars-x {
         font-size: 6rem;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .contact-modern {
+        padding: 2rem 0;
+    }
+}
+
+/* Landscape Small Phones */
+@media (max-width: 640px) and (orientation: landscape) {
+    .page-header {
+        min-height: 60vh;
+    }
+    
+    .page-header h1 {
+        font-size: 2rem;
+    }
+    
+    .contact-modern {
+        padding: 1.5rem 0;
+    }
+    
+    .contact-form-modern,
+    .contact-links-modern {
+        padding: 1.5rem;
     }
 }
 
@@ -2746,6 +3136,15 @@ footer {
     
     .nav-link {
         padding: 0.75rem 1rem;
+    }
+    
+    .form-group-modern input,
+    .form-group-modern textarea {
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+    
+    .contact-link-card {
+        min-height: 60px;
     }
 }
 

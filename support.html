@@ -209,80 +209,102 @@
         });
     </script>
     <script>
-        // Create moving stars
-        const starsContainer = document.getElementById('stars-container');
-        const numStars = 35;
-        const stars = [];
-        
-        // Create stars with random initial positions
-        for (let i = 0; i < numStars; i++) {
-            const star = document.createElement('div');
-            star.className = 'star';
-            const x = Math.random() * window.innerWidth;
-            const y = Math.random() * window.innerHeight;
-            star.style.left = x + 'px';
-            star.style.top = y + 'px';
-            starsContainer.appendChild(star);
-            stars.push({
-                element: star,
-                x: x,
-                y: y,
-                vx: (Math.random() - 0.5) * 0.3,
-                vy: (Math.random() - 0.5) * 0.3
-            });
-        }
-        
-        // Mouse position
-        let mouseX = window.innerWidth / 2;
-        let mouseY = window.innerHeight / 2;
-        
-        // Update mouse position
-        document.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-        });
-        
-        // Animate stars
-        function animateStars() {
-            stars.forEach((star) => {
-                // Random movement
-                star.x += star.vx;
-                star.y += star.vy;
-                
-                // Bounce off edges
-                if (star.x < 0 || star.x > window.innerWidth) star.vx *= -1;
-                if (star.y < 0 || star.y > window.innerHeight) star.vy *= -1;
-                
-                // Keep within bounds
-                star.x = Math.max(0, Math.min(window.innerWidth, star.x));
-                star.y = Math.max(0, Math.min(window.innerHeight, star.y));
-                
-                // Cursor influence (subtle pull towards cursor)
-                const dx = mouseX - star.x;
-                const dy = mouseY - star.y;
-                const distance = Math.sqrt(dx * dx + dy * dy);
-                const influence = distance > 0 ? Math.min(100 / distance, 0.2) : 0;
-                
-                const finalX = star.x + dx * influence * 0.15;
-                const finalY = star.y + dy * influence * 0.15;
-                
-                // Update position
-                star.element.style.left = finalX + 'px';
-                star.element.style.top = finalY + 'px';
-            });
+        // Optimized moving stars with GPU acceleration
+        (function() {
+            const starsContainer = document.getElementById('stars-container');
+            if (!starsContainer) return;
             
-            requestAnimationFrame(animateStars);
-        }
-        
-        animateStars();
-        
-        // Handle window resize
-        window.addEventListener('resize', () => {
-            stars.forEach((star) => {
-                star.x = Math.min(star.x, window.innerWidth);
-                star.y = Math.min(star.y, window.innerHeight);
+            const numStars = 35;
+            const stars = [];
+            let animationId = null;
+            let isVisible = true;
+            const viewport = { width: window.innerWidth, height: window.innerHeight };
+
+            for (let i = 0; i < numStars; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                const x = Math.random() * viewport.width;
+                const y = Math.random() * viewport.height;
+                star.style.transform = `translate(${x}px, ${y}px)`;
+                starsContainer.appendChild(star);
+                stars.push({
+                    element: star,
+                    x: x,
+                    y: y,
+                    vx: (Math.random() - 0.5) * 0.3,
+                    vy: (Math.random() - 0.5) * 0.3
+                });
+            }
+
+            let mouseX = viewport.width / 2;
+            let mouseY = viewport.height / 2;
+            let mouseUpdatePending = false;
+
+            const updateMousePosition = (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+                mouseUpdatePending = false;
+            };
+
+            document.addEventListener('mousemove', (e) => {
+                if (!mouseUpdatePending) {
+                    mouseUpdatePending = true;
+                    requestAnimationFrame(() => updateMousePosition(e));
+                }
+            }, { passive: true });
+
+            function animateStars() {
+                if (!isVisible) {
+                    animationId = requestAnimationFrame(animateStars);
+                    return;
+                }
+
+                stars.forEach((star) => {
+                    star.x += star.vx;
+                    star.y += star.vy;
+
+                    if (star.x < 0 || star.x > viewport.width) star.vx *= -1;
+                    if (star.y < 0 || star.y > viewport.height) star.vy *= -1;
+
+                    star.x = Math.max(0, Math.min(viewport.width, star.x));
+                    star.y = Math.max(0, Math.min(viewport.height, star.y));
+
+                    const dx = mouseX - star.x;
+                    const dy = mouseY - star.y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    const influence = distance > 0 ? Math.min(100 / distance, 0.2) : 0;
+
+                    const finalX = star.x + dx * influence * 0.15;
+                    const finalY = star.y + dy * influence * 0.15;
+
+                    star.element.style.transform = `translate(${finalX}px, ${finalY}px)`;
+                });
+
+                animationId = requestAnimationFrame(animateStars);
+            }
+
+            document.addEventListener('visibilitychange', () => {
+                isVisible = !document.hidden;
+                if (isVisible && !animationId) {
+                    animateStars();
+                }
             });
-        });
+
+            let resizeTimeout;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimeout);
+                resizeTimeout = setTimeout(() => {
+                    viewport.width = window.innerWidth;
+                    viewport.height = window.innerHeight;
+                    stars.forEach((star) => {
+                        star.x = Math.min(star.x, viewport.width);
+                        star.y = Math.min(star.y, viewport.height);
+                    });
+                }, 150);
+            }, { passive: true });
+
+            animateStars();
+        })();
     </script>
     <script>
         // Smooth scroll animations using Intersection Observer
@@ -324,63 +346,15 @@
         });
     </script>
     <script>
-        // Auto-scroll down after page loads with slow smooth animation
+        // Page header slide-up animation on load
         window.addEventListener('load', () => {
-            // Wait a moment for initial animations
-            setTimeout(() => {
-                const contentSection = document.querySelector('.content-section');
-                if (contentSection) {
-                    const targetPosition = window.innerHeight;
-                    const startPosition = window.pageYOffset;
-                    const distance = targetPosition - startPosition;
-                    const duration = 2000; // 2 seconds for slow scroll
-                    let start = null;
-                    let animationFrameId = null;
-                    let isAutoScrolling = true;
-                    let lastScrollPosition = window.pageYOffset;
-
-                    // Detect manual scrolling and cancel auto-scroll
-                    function handleManualScroll() {
-                        const currentScroll = window.pageYOffset;
-                        // If scroll position changed significantly and wasn't from our auto-scroll
-                        if (Math.abs(currentScroll - lastScrollPosition) > 5 && isAutoScrolling) {
-                            isAutoScrolling = false;
-                            if (animationFrameId) {
-                                cancelAnimationFrame(animationFrameId);
-                            }
-                            window.removeEventListener('scroll', handleManualScroll);
-                        }
-                        lastScrollPosition = currentScroll;
-                    }
-
-                    window.addEventListener('scroll', handleManualScroll);
-
-                    function smoothScroll(timestamp) {
-                        if (!isAutoScrolling) return;
-                        
-                        if (!start) start = timestamp;
-                        const progress = timestamp - start;
-                        const percentage = Math.min(progress / duration, 1);
-                        
-                        // Easing function for smooth deceleration
-                        const easeInOutCubic = percentage < 0.5
-                            ? 4 * percentage * percentage * percentage
-                            : 1 - Math.pow(-2 * percentage + 2, 3) / 2;
-                        
-                        window.scrollTo(0, startPosition + distance * easeInOutCubic);
-                        lastScrollPosition = window.pageYOffset;
-                        
-                        if (progress < duration && isAutoScrolling) {
-                            animationFrameId = requestAnimationFrame(smoothScroll);
-                        } else {
-                            isAutoScrolling = false;
-                            window.removeEventListener('scroll', handleManualScroll);
-                        }
-                    }
-                    
-                    animationFrameId = requestAnimationFrame(smoothScroll);
-                }
-            }, 700); // 1 second delay to let header animations play
+            const pageHeader = document.querySelector('.page-header');
+            if (pageHeader) {
+                // Add slide-up class after a brief delay
+                setTimeout(() => {
+                    pageHeader.classList.add('slide-up');
+                }, 800);
+            }
         });
     </script>
 </body>

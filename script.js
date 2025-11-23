@@ -93,29 +93,42 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Navigation fade on scroll
+    // Navigation fade on scroll - optimized with throttling
     let lastScrollTop = 0;
     const navbar = document.querySelector('.navbar');
-    const scrollThreshold = 10; // Minimum scroll distance to trigger fade
+    const scrollThreshold = 10;
 
-    window.addEventListener('scroll', function() {
+    // Throttle function for performance
+    function throttle(func, limit) {
+        let inThrottle;
+        return function() {
+            const args = arguments;
+            const context = this;
+            if (!inThrottle) {
+                func.apply(context, args);
+                inThrottle = true;
+                setTimeout(() => inThrottle = false, limit);
+            }
+        };
+    }
+
+    const handleScroll = throttle(function() {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
         if (scrollTop > scrollThreshold) {
             if (scrollTop > lastScrollTop) {
-                // Scrolling down - fade out
                 navbar.classList.add('hidden');
             } else {
-                // Scrolling up - fade in
                 navbar.classList.remove('hidden');
             }
         } else {
-            // At the top - always show
             navbar.classList.remove('hidden');
         }
 
         lastScrollTop = scrollTop;
-    });
+    }, 16); // ~60fps
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
 
     // Apply Nasalization font to TARS, TarsX, and TARSX text
     function applyNasalizationFont() {

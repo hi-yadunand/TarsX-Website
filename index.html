@@ -105,80 +105,110 @@
 
     <script src="script.js"></script>
     <script>
-        // Create moving stars
-        const starsContainer = document.getElementById('stars-container');
-        const numStars = 35;
-        const stars = [];
+        // Optimized moving stars with GPU acceleration
+        (function() {
+            const starsContainer = document.getElementById('stars-container');
+            if (!starsContainer) return;
+            
+            const numStars = 35;
+            const stars = [];
+            let animationId = null;
+            let isVisible = true;
+            const viewport = { width: window.innerWidth, height: window.innerHeight };
 
-        // Create stars with random initial positions
-        for (let i = 0; i < numStars; i++) {
-            const star = document.createElement('div');
-            star.className = 'star';
-            const x = Math.random() * window.innerWidth;
-            const y = Math.random() * window.innerHeight;
-            star.style.left = x + 'px';
-            star.style.top = y + 'px';
-            starsContainer.appendChild(star);
-            stars.push({
-                element: star,
-                x: x,
-                y: y,
-                vx: (Math.random() - 0.5) * 0.3,
-                vy: (Math.random() - 0.5) * 0.3
+            // Create stars with random initial positions
+            for (let i = 0; i < numStars; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                const x = Math.random() * viewport.width;
+                const y = Math.random() * viewport.height;
+                star.style.transform = `translate(${x}px, ${y}px)`;
+                starsContainer.appendChild(star);
+                stars.push({
+                    element: star,
+                    x: x,
+                    y: y,
+                    vx: (Math.random() - 0.5) * 0.3,
+                    vy: (Math.random() - 0.5) * 0.3
+                });
+            }
+
+            // Mouse position - throttled
+            let mouseX = viewport.width / 2;
+            let mouseY = viewport.height / 2;
+            let mouseUpdatePending = false;
+
+            const updateMousePosition = (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+                mouseUpdatePending = false;
+            };
+
+            document.addEventListener('mousemove', (e) => {
+                if (!mouseUpdatePending) {
+                    mouseUpdatePending = true;
+                    requestAnimationFrame(() => updateMousePosition(e));
+                }
+            }, { passive: true });
+
+            // Optimized star animation using transform (GPU accelerated)
+            function animateStars() {
+                if (!isVisible) {
+                    animationId = requestAnimationFrame(animateStars);
+                    return;
+                }
+
+                stars.forEach((star) => {
+                    star.x += star.vx;
+                    star.y += star.vy;
+
+                    // Bounce off edges
+                    if (star.x < 0 || star.x > viewport.width) star.vx *= -1;
+                    if (star.y < 0 || star.y > viewport.height) star.vy *= -1;
+
+                    star.x = Math.max(0, Math.min(viewport.width, star.x));
+                    star.y = Math.max(0, Math.min(viewport.height, star.y));
+
+                    // Cursor influence
+                    const dx = mouseX - star.x;
+                    const dy = mouseY - star.y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    const influence = distance > 0 ? Math.min(100 / distance, 0.2) : 0;
+
+                    const finalX = star.x + dx * influence * 0.15;
+                    const finalY = star.y + dy * influence * 0.15;
+
+                    // Use transform instead of left/top for GPU acceleration
+                    star.element.style.transform = `translate(${finalX}px, ${finalY}px)`;
+                });
+
+                animationId = requestAnimationFrame(animateStars);
+            }
+
+            // Pause animation when tab is hidden
+            document.addEventListener('visibilitychange', () => {
+                isVisible = !document.hidden;
+                if (isVisible && !animationId) {
+                    animateStars();
+                }
             });
-        }
 
-        // Mouse position
-        let mouseX = window.innerWidth / 2;
-        let mouseY = window.innerHeight / 2;
+            // Throttled resize handler
+            let resizeTimeout;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimeout);
+                resizeTimeout = setTimeout(() => {
+                    viewport.width = window.innerWidth;
+                    viewport.height = window.innerHeight;
+                    stars.forEach((star) => {
+                        star.x = Math.min(star.x, viewport.width);
+                        star.y = Math.min(star.y, viewport.height);
+                    });
+                }, 150);
+            }, { passive: true });
 
-        // Update mouse position
-        document.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-        });
-
-        // Animate stars
-        function animateStars() {
-            stars.forEach((star) => {
-                // Random movement
-                star.x += star.vx;
-                star.y += star.vy;
-
-                // Bounce off edges
-                if (star.x < 0 || star.x > window.innerWidth) star.vx *= -1;
-                if (star.y < 0 || star.y > window.innerHeight) star.vy *= -1;
-
-                // Keep within bounds
-                star.x = Math.max(0, Math.min(window.innerWidth, star.x));
-                star.y = Math.max(0, Math.min(window.innerHeight, star.y));
-
-                // Cursor influence (subtle pull towards cursor)
-                const dx = mouseX - star.x;
-                const dy = mouseY - star.y;
-                const distance = Math.sqrt(dx * dx + dy * dy);
-                const influence = distance > 0 ? Math.min(100 / distance, 0.2) : 0;
-
-                const finalX = star.x + dx * influence * 0.15;
-                const finalY = star.y + dy * influence * 0.15;
-
-                // Update position
-                star.element.style.left = finalX + 'px';
-                star.element.style.top = finalY + 'px';
-            });
-
-            requestAnimationFrame(animateStars);
-        }
-
-        animateStars();
-
-        // Handle window resize
-        window.addEventListener('resize', () => {
-            stars.forEach((star) => {
-                star.x = Math.min(star.x, window.innerWidth);
-                star.y = Math.min(star.y, window.innerHeight);
-            });
-        });
+            animateStars();
+        })();
     </script>
     <script>
         // Mars Coordinated Time (MTC) Calculator
@@ -258,7 +288,17 @@
             }
         }
 
-        window.addEventListener('scroll', fadeArrowOnScroll);
+        // Throttle scroll handler
+        let scrollTimeout;
+        const throttledFadeArrow = () => {
+            if (!scrollTimeout) {
+                scrollTimeout = requestAnimationFrame(() => {
+                    fadeArrowOnScroll();
+                    scrollTimeout = null;
+                });
+            }
+        };
+        window.addEventListener('scroll', throttledFadeArrow, { passive: true });
         fadeArrowOnScroll(); // Initial call
     </script>
     <script>

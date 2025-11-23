@@ -1200,6 +1200,31 @@ body::-webkit-scrollbar {
     display: none;
 }
 
+/* hCaptcha styling */
+.contact-form-modern form .h-captcha {
+    margin: 1.5rem 0;
+    display: flex;
+    justify-content: center;
+    min-height: 78px; /* Standard hCaptcha height */
+}
+
+/* Responsive hCaptcha styling */
+@media (max-width: 768px) {
+    .contact-form-modern form .h-captcha {
+        margin: 1rem 0;
+        transform: scale(0.9);
+        transform-origin: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-form-modern form .h-captcha {
+        margin: 1rem 0;
+        transform: scale(0.85);
+        transform-origin: center;
+    }
+}
+
 .btn-modern {
     width: 100%;
     padding: 1rem 2rem;
@@ -2669,6 +2694,12 @@ footer {
         font-size: 16px; /* Prevents zoom on iOS */
     }
     
+    .contact-form-modern form input[type="text"],
+    .contact-form-modern form input[type="email"],
+    .contact-form-modern form textarea {
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+    
     .contact-link-card {
         padding: 1.25rem;
         gap: 1rem;
@@ -3202,6 +3233,12 @@ footer {
     
     .form-group-modern input,
     .form-group-modern textarea {
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+    
+    .contact-form-modern form input[type="text"],
+    .contact-form-modern form input[type="email"],
+    .contact-form-modern form textarea {
         font-size: 16px; /* Prevents zoom on iOS */
     }
     

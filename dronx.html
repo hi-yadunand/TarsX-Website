@@ -51,19 +51,185 @@
                 <aside class="build-log-sidebar">
                     <nav class="build-log-nav">
                         <ul class="nav-list">
-                            <li><a href="#innovation" class="nav-link active">Innovation</a></li>
+                            <li><a href="#overview" class="nav-link active">Overview</a></li>
+                            <li><a href="#things" class="nav-link">Things</a></li>
+                            <li><a href="#story" class="nav-link">Story</a></li>
+                            <li><a href="#introduction" class="nav-link">Introduction</a></li>
+                            <li><a href="#mechanical" class="nav-link">Mechanical Observations</a></li>
+                            <li><a href="#custom-parts" class="nav-link">Custom Parts</a></li>
+                            <li><a href="#code" class="nav-link">Code</a></li>
                         </ul>
                     </nav>
                 </aside>
                 <div class="build-log-main">
                     <div class="build-log-content-modern">
-                        <!-- Innovation Section -->
-                        <section id="innovation" class="build-log-section scroll-slide-left">
+                        <!-- Overview Section -->
+                        <section id="overview" class="build-log-section scroll-slide-left">
                             <div class="section-header">
-                                <h2>Innovation</h2>
+                                <h2>Overview</h2>
                             </div>
                             <div class="section-content">
                                 <p>DronX represents the next evolution in autonomous flight technology. Combining cutting-edge AI, precision engineering, and innovative design, DronX pushes the boundaries of what's possible in aerial robotics.</p>
+                                <p>This project aims to create a fully autonomous drone capable of intelligent navigation, obstacle avoidance, and advanced flight control. DronX is designed to be modular, accessible, and powerful—bringing professional-grade drone capabilities to makers and enthusiasts.</p>
+                                <p>Whether you're interested in autonomous flight, sensor fusion, or embedded systems, DronX offers a comprehensive platform for learning and experimentation. This build log documents the entire development process, from initial concept to working prototype.</p>
+                            </div>
+                        </section>
+
+                        <!-- Things Section -->
+                        <section id="things" class="build-log-section scroll-fade-in-delay">
+                            <div class="section-header">
+                                <h2>Things</h2>
+                            </div>
+                            <div class="section-content">
+                                <p>To build your own DronX, you'll need a combination of hardware components, software tools, and custom parts. Here's a comprehensive list of what's required:</p>
+                                <h3>Hardware Components</h3>
+                                <ul>
+                                    <li>ESP32 Mini or similar microcontroller board</li>
+                                    <li>IMU sensor (GY-91, MPU-9265, or compatible)</li>
+                                    <li>8520 3.7V brushed motors (x4)</li>
+                                    <li>55mm or 65mm propellers (x4)</li>
+                                    <li>MOSFET drivers (100N03A or analog, x4)</li>
+                                    <li>Pull-down resistors (10 kΩ, x4)</li>
+                                    <li>Li-Po battery (LW 952540 or compatible)</li>
+                                    <li>Battery connector (MX2.0 2P female)</li>
+                                    <li>Li-Po charger</li>
+                                    <li>Boost converter (5V output, optional)</li>
+                                    <li>RC receiver (DF500 or compatible, optional)</li>
+                                    <li>Controller (CC2500 transmitter or gamepad)</li>
+                                    <li>28 AWG wires</li>
+                                    <li>Double-sided tape</li>
+                                    <li>M3x5 screws (x2 for IMU)</li>
+                                    <li>M1.4x5 screws (x4 for frame)</li>
+                                </ul>
+                                <h3>3D Printed Parts</h3>
+                                <ul>
+                                    <li>Frame main part (STL/STEP)</li>
+                                    <li>Frame top part / ESP32 holder (STL/STEP)</li>
+                                    <li>Washer M3 (x2)</li>
+                                </ul>
+                                <h3>Software & Tools</h3>
+                                <ul>
+                                    <li>Arduino IDE for ESP32 programming</li>
+                                    <li>3D printing software (Cura, PrusaSlicer)</li>
+                                    <li>CAD software for design modifications</li>
+                                    <li>Version control (Git) for code management</li>
+                                </ul>
+                            </div>
+                        </section>
+
+                        <!-- Story Section -->
+                        <section id="story" class="build-log-section scroll-fade-in-delay">
+                            <div class="section-header">
+                                <h2>Story</h2>
+                            </div>
+                            <div class="section-content">
+                                <p>The inspiration for DronX came from a desire to create an accessible, open-source drone platform that combines the best of autonomous flight technology with maker-friendly design principles.</p>
+                                <p>What started as an exploration into small-scale drone development evolved into a comprehensive project focused on creating a drone that's both powerful and approachable. The challenge wasn't just about building a drone that could fly, but one that could think, adapt, and navigate intelligently.</p>
+                                <p>Throughout this journey, we've encountered numerous obstacles—from sensor calibration challenges to flight stability issues. Each problem solved has been a learning opportunity, pushing us to develop better algorithms and more robust designs.</p>
+                                <p>DronX represents more than just a drone project. It's a platform for learning, experimentation, and innovation. By making the design open-source and well-documented, we hope to inspire others to build, modify, and improve upon this foundation.</p>
+                            </div>
+                        </section>
+
+                        <!-- Introduction Section -->
+                        <section id="introduction" class="build-log-section scroll-fade-in-delay">
+                            <div class="section-header">
+                                <h2>Introduction</h2>
+                            </div>
+                            <div class="section-content">
+                                <p>Welcome to the DronX build log. This comprehensive guide will walk you through every aspect of building your own autonomous drone, from component selection to final assembly and programming.</p>
+                                <p>DronX is designed to be modular and accessible. Whether you're an experienced robotics engineer or a curious beginner, this project is structured to accommodate different skill levels. Each section builds upon the previous one, creating a logical progression from concept to completion.</p>
+                                <p>The project is divided into several key phases:</p>
+                                <ul>
+                                    <li><strong>Design & Planning:</strong> Understanding the requirements and selecting appropriate components</li>
+                                    <li><strong>Mechanical Assembly:</strong> 3D printing the frame and assembling the physical structure</li>
+                                    <li><strong>Electronics Integration:</strong> Wiring sensors, motors, and control systems</li>
+                                    <li><strong>Software Development:</strong> Programming flight control, sensor fusion, and autonomous behaviors</li>
+                                    <li><strong>Testing & Calibration:</strong> Fine-tuning PID controllers and flight characteristics</li>
+                                </ul>
+                                <p>This build log serves as both documentation and a learning resource. Feel free to adapt, modify, and improve upon these designs. Innovation happens when we build on each other's work.</p>
+                            </div>
+                        </section>
+
+                        <!-- Mechanical Observations Section -->
+                        <section id="mechanical" class="build-log-section scroll-fade-in-delay">
+                            <div class="section-header">
+                                <h2>Mechanical Observations</h2>
+                            </div>
+                            <div class="section-content">
+                                <p>One of the most critical aspects of DronX is its mechanical design. The frame must be lightweight yet rigid, providing stability while minimizing weight to maximize flight time.</p>
+                                <h3>Key Mechanical Features</h3>
+                                <ul>
+                                    <li><strong>Compact Frame Design:</strong> Optimized for small-scale flight with minimal footprint</li>
+                                    <li><strong>Motor Placement:</strong> Four motors arranged in quadcopter configuration for stable flight</li>
+                                    <li><strong>Component Integration:</strong> Careful placement of electronics to maintain center of gravity</li>
+                                    <li><strong>Weight Distribution:</strong> Balanced design ensures stable hover and smooth flight characteristics</li>
+                                </ul>
+                                <h3>Flight Capabilities</h3>
+                                <p>DronX can achieve several key flight modes:</p>
+                                <ul>
+                                    <li>Stable hover with altitude hold</li>
+                                    <li>Manual control via RC transmitter or gamepad</li>
+                                    <li>Autonomous navigation with obstacle avoidance</li>
+                                    <li>Precision landing and takeoff</li>
+                                </ul>
+                                <p>Early prototypes revealed that the mechanical design needed to balance between structural integrity and weight. Too much weight reduced flight time, while too little rigidity caused instability. The final design represents an optimal compromise between these factors.</p>
+                            </div>
+                        </section>
+
+                        <!-- Custom Parts Section -->
+                        <section id="custom-parts" class="build-log-section scroll-fade-in-delay">
+                            <div class="section-header">
+                                <h2>Custom Parts</h2>
+                            </div>
+                            <div class="section-content">
+                                <p>Many components of DronX require custom fabrication. This section details the custom parts needed and how to create them.</p>
+                                <h3>3D Printed Components</h3>
+                                <ul>
+                                    <li><strong>Frame Main Part:</strong> Primary structural element, printed in PETG or ABS for durability and impact resistance</li>
+                                    <li><strong>Frame Top Part / ESP32 Holder:</strong> Custom enclosure for the microcontroller and IMU sensor</li>
+                                    <li><strong>Washer M3:</strong> Small washers for securing the IMU sensor</li>
+                                </ul>
+                                <h3>Design Considerations</h3>
+                                <p>The frame design prioritizes:</p>
+                                <ul>
+                                    <li>Lightweight construction to maximize flight time</li>
+                                    <li>Rigid structure to minimize vibrations affecting sensors</li>
+                                    <li>Easy access to electronics for maintenance and upgrades</li>
+                                    <li>Secure mounting points for all components</li>
+                                </ul>
+                                <p>All CAD files and 3D printing instructions are available in the project repository, allowing you to manufacture these parts yourself or through a service. The design is optimized for common 3D printers and standard materials.</p>
+                            </div>
+                        </section>
+
+                        <!-- Code Section -->
+                        <section id="code" class="build-log-section scroll-fade-in-delay">
+                            <div class="section-header">
+                                <h2>Code</h2>
+                            </div>
+                            <div class="section-content">
+                                <p>The software architecture of DronX is built on a modular foundation, allowing for easy expansion and customization.</p>
+                                <h3>Core Systems</h3>
+                                <ul>
+                                    <li><strong>Flight Control:</strong> PID controllers for stable flight and attitude control</li>
+                                    <li><strong>Sensor Fusion:</strong> Processing data from IMU and other sensors for accurate orientation</li>
+                                    <li><strong>Motor Control:</strong> PWM-based speed control for precise motor management</li>
+                                    <li><strong>Communication:</strong> Interface for RC receiver and optional telemetry</li>
+                                    <li><strong>Autonomous Navigation:</strong> Decision-making system for autonomous flight behaviors</li>
+                                </ul>
+                                <h3>Programming Languages</h3>
+                                <ul>
+                                    <li><strong>C++:</strong> Main flight control system and real-time processing</li>
+                                    <li><strong>Arduino:</strong> ESP32-specific libraries and hardware abstraction</li>
+                                </ul>
+                                <h3>Key Features</h3>
+                                <ul>
+                                    <li>Modular code structure for easy maintenance and updates</li>
+                                    <li>Comprehensive sensor calibration routines</li>
+                                    <li>Extensive logging for debugging and analysis</li>
+                                    <li>Configurable PID parameters for fine-tuning</li>
+                                    <li>Safety features including failsafe modes</li>
+                                </ul>
+                                <p>The codebase is open-source and available on GitHub. Contributions, bug reports, and feature requests are always welcome. Documentation is continuously updated to help new developers get started quickly.</p>
                             </div>
                         </section>
                     </div>
@@ -72,33 +238,15 @@
                     <div class="sidebar-section">
                         <h3>Other Projects</h3>
                         <div class="project-list">
-                            <a href="dronx.html" class="project-item">
+                            <a href="dronx-downloads.html" class="project-item">
                                 <div class="project-thumbnail">
-                                    <div class="project-placeholder">📦</div>
+                                    <div class="project-placeholder">⬇️</div>
                                 </div>
                                 <div class="project-info">
-                                    <h4>DronX</h4>
-                                    <p>Autonomous flight technology</p>
+                                    <h4>DronX Downloads</h4>
+                                    <p>Components and resources</p>
                                 </div>
                             </a>
-                            <div class="project-item">
-                                <div class="project-thumbnail">
-                                    <div class="project-placeholder">🤖</div>
-                                </div>
-                                <div class="project-info">
-                                    <h4>TARS AI</h4>
-                                    <p>AI-powered assistant</p>
-                                </div>
-                            </div>
-                            <div class="project-item">
-                                <div class="project-thumbnail">
-                                    <div class="project-placeholder">🚀</div>
-                                </div>
-                                <div class="project-info">
-                                    <h4>Space Explorer</h4>
-                                    <p>Virtual space simulation</p>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </aside>

@@ -1607,6 +1607,66 @@ body::-webkit-scrollbar {
     text-align: center;
 }
 
+/* Components Table */
+.components-table-wrapper {
+    overflow-x: auto;
+    margin-top: 2rem;
+}
+
+.components {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+.components thead {
+    background: rgba(254, 119, 67, 0.15);
+}
+
+.components th {
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+    color: var(--primary-color);
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid rgba(254, 119, 67, 0.3);
+}
+
+.components td {
+    padding: 1rem;
+    color: rgba(255, 255, 255, 0.9);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    vertical-align: middle;
+}
+
+.components tbody tr {
+    transition: background-color 0.3s ease;
+}
+
+.components tbody tr:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.components tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.components img {
+    border-radius: 6px;
+    margin: 0.25rem 0;
+    display: block;
+}
+
+.components td img + img {
+    margin-top: 0.5rem;
+}
+
 .about-hero,
 .downloads-hero,
 .build-log-hero,
@@ -2232,6 +2292,25 @@ body::-webkit-scrollbar {
     .guides-grid,
     .components-grid {
         grid-template-columns: 1fr;
+    }
+    
+    .components-table-wrapper {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .components {
+        font-size: 0.9rem;
+    }
+    
+    .components th,
+    .components td {
+        padding: 0.75rem 0.5rem;
+    }
+    
+    .components img {
+        max-width: 80px;
+        height: auto;
     }
     
     .build-log-nav {

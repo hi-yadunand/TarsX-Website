@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TarsX - DronX Downloads</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="stars-container"></div>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="Resources/White TARSX Wordmark Logo.svg" alt="TarsX Logo">
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li class="dropdown">
+                    <a href="#" onclick="return false;">Projects</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="dronx.html">DronX</a></li>
+                    </ul>
+                </li>
+                <li><a href="build-log.html">Build Log</a></li>
+                <li><a href="downloads.html" class="active">Downloads</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="support.html">Support</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1 class="scroll-fade-in">DronX Downloads</h1>
+                <p class="page-subtitle scroll-fade-in-delay">Get everything you need to build your DronX</p>
+            </div>
+        </section>
+
+        <section class="content-section downloads-modern">
+            <div class="container downloads-container">
+                <aside class="downloads-sidebar">
+                    <nav class="downloads-nav">
+                        <ul class="nav-list">
+                            <li><a href="#downloads" class="nav-link active">Core Downloads</a></li>
+                            <li><a href="#guides" class="nav-link">Guides & 3D Files</a></li>
+                            <li><a href="#components" class="nav-link">Required Components</a></li>
+                        </ul>
+                    </nav>
+                </aside>
+                <div class="downloads-main">
+                    <div class="downloads-content-modern">
+                        <!-- Core Downloads Section -->
+                        <section id="downloads" class="downloads-section scroll-slide-left">
+                            <div class="section-intro">
+                                <h2>Core Downloads</h2>
+                                <p>Grab the essentials you need to get your DronX project running.</p>
+                            </div>
+
+                            <!-- DronX Source Code -->
+                            <div class="download-item-card scroll-fade-in-delay">
+                                <div class="download-item-header">
+                                    <h3>DronX Source Code</h3>
+                                </div>
+                                <p class="download-item-desc">Full GitHub repository with the latest firmware, flight control algorithms, sensor fusion code, and comprehensive documentation. Includes Arduino IDE project files, PID tuning parameters, and example configurations.</p>
+                                <a href="#" class="btn-modern">
+                                    <span>Open GitHub</span>
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                        <path d="M4 10H16M16 10L12 6M16 10L12 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                    </svg>
+                                </a>
+                            </div>
+
+                            <!-- Firmware Release -->
+                            <div class="download-item-card scroll-fade-in-delay">
+                                <div class="download-item-header">
+                                    <h3>Latest Firmware Release</h3>
+                                </div>
+                                <p class="download-item-desc">Pre-compiled firmware binary for ESP32. Ready to flash with Arduino IDE or ESP32 Flash Tool. Includes all flight control features, sensor calibration, and safety protocols.</p>
+                                <a href="#" class="btn-modern">
+                                    <span>Download Firmware</span>
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                        <path d="M4 10H16M16 10L12 6M16 10L12 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                    </svg>
+                                </a>
+                            </div>
+
+                            <!-- Configuration Tool -->
+                            <div class="download-item-card scroll-fade-in-delay">
+                                <div class="download-item-header">
+                                    <h3>Configuration Tool</h3>
+                                </div>
+                                <p class="download-item-desc">Desktop application for tuning PID parameters, calibrating sensors, and configuring flight modes. Works with Windows, macOS, and Linux. Simplifies setup and fine-tuning without code changes.</p>
+                                <a href="#" class="btn-modern">
+                                    <span>Download Tool</span>
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                        <path d="M4 10H16M16 10L12 6M16 10L12 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                    </svg>
+                                </a>
+                            </div>
+
+                        </section>
+
+                        <!-- Guides & 3D Files Section -->
+                        <section id="guides" class="downloads-section scroll-fade-in-delay">
+                            <div class="section-intro">
+                                <h2>Guides & 3D Files</h2>
+                                <p>Simple references and printable parts to help you build faster.</p>
+                            </div>
+
+                            <div class="guides-grid">
+                                <div class="guide-card scroll-fade-in-delay">
+                                    <h4>ESP32 Setup Guide</h4>
+                                    <p>Complete walkthrough for installing Arduino IDE, ESP32 board support, required libraries, and flashing your first firmware. Includes troubleshooting tips and common issues.</p>
+                                    <a href="#" class="btn-modern-secondary">View Guide</a>
+                                </div>
+
+                                <div class="guide-card scroll-fade-in-delay">
+                                    <h4>IMU Calibration Guide</h4>
+                                    <p>Step-by-step instructions for calibrating your IMU sensor (GY-91, MPU-9265, or compatible). Learn how to perform offset calibration, scale calibration, and verify sensor accuracy for stable flight.</p>
+                                    <a href="#" class="btn-modern-secondary">View Guide</a>
+                                </div>
+
+                                <div class="guide-card scroll-fade-in-delay">
+                                    <h4>Flight Controller Setup</h4>
+                                    <p>Comprehensive guide to configuring PID controllers for pitch, roll, and yaw. Includes motor mapping, flight mode selection, and tuning procedures for optimal flight performance.</p>
+                                    <a href="#" class="btn-modern-secondary">View Guide</a>
+                                </div>
+
+                                <div class="guide-card scroll-fade-in-delay">
+                                    <h4>Motor Control & Wiring</h4>
+                                    <p>Detailed instructions for wiring 8520 brushed motors with MOSFET drivers. Includes PWM signal connections, pull-down resistor placement, and motor testing procedures.</p>
+                                    <a href="#" class="btn-modern-secondary">View Guide</a>
+                                </div>
+
+                                <div class="guide-card scroll-fade-in-delay">
+                                    <h4>RC Controller Setup</h4>
+                                    <p>Guide for pairing CC2500 transmitters or gamepads with DronX. Covers receiver connection, channel mapping, failsafe configuration, and control stick calibration.</p>
+                                    <a href="#" class="btn-modern-secondary">View Guide</a>
+                                </div>
+
+                                <div class="guide-card scroll-fade-in-delay">
+                                    <h4>Battery & Power Management</h4>
+                                    <p>Learn about Li-Po battery selection, charging procedures, voltage monitoring, and power distribution. Includes safety guidelines and best practices for battery handling.</p>
+                                    <a href="#" class="btn-modern-secondary">View Guide</a>
+                                </div>
+
+                                <div class="guide-card scroll-fade-in-delay">
+                                    <h4>DronX Frame Bundle (ZIP)</h4>
+                                    <p>Complete collection of 3D-printable STL files for frame main part, ESP32 holder, and washers. Includes STEP files for CAD modifications. Optimized print settings included (~8 MB).</p>
+                                    <a href="#" class="btn-modern-secondary">Download ZIP</a>
+                                </div>
+
+                                <div class="guide-card scroll-fade-in-delay">
+                                    <h4>Hardware Wiring Guide (PDF)</h4>
+                                    <p>Comprehensive wiring diagram showing all connections: ESP32 pinouts, IMU sensor wiring, MOSFET connections, battery integration, and power distribution. Includes color-coded schematics (~450 KB).</p>
+                                    <a href="#" class="btn-modern-secondary">Download PDF</a>
+                                </div>
+
+                                <div class="guide-card scroll-fade-in-delay">
+                                    <h4>Assembly Instructions (PDF)</h4>
+                                    <p>Step-by-step assembly guide with photos and detailed instructions. Covers frame assembly, component mounting, wire routing, and final integration checklist (~320 KB).</p>
+                                    <a href="#" class="btn-modern-secondary">Download PDF</a>
+                                </div>
+
+                                <div class="guide-card scroll-fade-in-delay">
+                                    <h4>Flight Testing Guide</h4>
+                                    <p>Safety procedures and testing protocols for first flights. Includes pre-flight checklist, hover testing, manual control verification, and troubleshooting common flight issues.</p>
+                                    <a href="#" class="btn-modern-secondary">View Guide</a>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Required Components Section -->
+                        <section id="components" class="downloads-section scroll-fade-in-delay">
+                            <div class="section-intro">
+                                <h2>Required Components</h2>
+                                <p>A complete shopping list for building your DronX drone.</p>
+                            </div>
+
+                            <div class="components-grid">
+                                <div class="component-card scroll-fade-in-delay">
+                                    <div class="component-header">
+                                        <h4>ESP32 Mini</h4>
+                                        <span class="component-qty">Qty x1</span>
+                                    </div>
+                                    <p class="component-desc">Main flight controller with WiFi/Bluetooth. Dual-core processor handles sensor fusion and flight control algorithms in real-time.</p>
+                                    <a href="#" class="btn-modern-secondary">View Item</a>
+                                </div>
+
+                                <div class="component-card scroll-fade-in-delay">
+                                    <div class="component-header">
+                                        <h4>IMU Sensor</h4>
+                                        <span class="component-qty">Qty x1</span>
+                                    </div>
+                                    <p class="component-desc">9-axis IMU with accelerometer, gyroscope, and magnetometer. GY-91, MPU-9265, or MPU-9250/MPU-6500 compatible. Essential for attitude control and stability.</p>
+                                    <a href="#" class="btn-modern-secondary">View Item</a>
+                                </div>
+
+                                <div class="component-card scroll-fade-in-delay">
+                                    <div class="component-header">
+                                        <h4>8520 Brushed Motor</h4>
+                                        <span class="component-qty">Qty x4</span>
+                                    </div>
+                                    <p class="component-desc">3.7V brushed DC motors rated for 8520 size. Provides thrust for quadcopter configuration. Ensure all four motors are matched for balanced flight.</p>
+                                    <a href="#" class="btn-modern-secondary">View Item</a>
+                                </div>
+
+                                <div class="component-card scroll-fade-in-delay">
+                                    <div class="component-header">
+                                        <h4>Propellers</h4>
+                                        <span class="component-qty">Qty x4</span>
+                                    </div>
+                                    <p class="component-desc">55mm or 65mm diameter propellers. Two clockwise (CW) and two counter-clockwise (CCW) for quadcopter configuration. Plastic or carbon fiber options available.</p>
+                                    <a href="#" class="btn-modern-secondary">View Item</a>
+                                </div>
+
+                                <div class="component-card scroll-fade-in-delay">
+                                    <div class="component-header">
+                                        <h4>MOSFET Driver</h4>
+                                        <span class="component-qty">Qty x4</span>
+                                    </div>
+                                    <p class="component-desc">N-channel MOSFET (100N03A or equivalent) for PWM motor control. Handles 3.7V motor current with low on-resistance. One per motor for independent speed control.</p>
+                                    <a href="#" class="btn-modern-secondary">View Item</a>
+                                </div>
+
+                                <div class="component-card scroll-fade-in-delay">
+                                    <div class="component-header">
+                                        <h4>Pull-down Resistor</h4>
+                                        <span class="component-qty">Qty x4</span>
+                                    </div>
+                                    <p class="component-desc">10 kΩ resistors</p>
+                                    <a href="#" class="btn-modern-secondary">View Item</a>
+                                </div>
+
+                                <div class="component-card scroll-fade-in-delay">
+                                    <div class="component-header">
+                                        <h4>Li-Po Battery</h4>
+                                        <span class="component-qty">Qty x1</span>
+                                    </div>
+                                    <p class="component-desc">LW 952540 or compatible 3.7V Li-Po battery. Provides power for motors and electronics. Ensure proper capacity (typically 300-500mAh) for adequate flight time.</p>
+                                    <a href="#" class="btn-modern-secondary">View Item</a>
+                                </div>
+
+                                <div class="component-card scroll-fade-in-delay">
+                                    <div class="component-header">
+                                        <h4>Battery Connector</h4>
+                                        <span class="component-qty">Qty x1</span>
+                                    </div>
+                                    <p class="component-desc">MX2.0 2P female</p>
+                                    <a href="#" class="btn-modern-secondary">View Item</a>
+                                </div>
+
+                                <div class="component-card scroll-fade-in-delay">
+                                    <div class="component-header">
+                                        <h4>Li-Po Charger</h4>
+                                        <span class="component-qty">Qty x1</span>
+                                    </div>
+                                    <p class="component-desc">Compatible charger</p>
+                                    <a href="#" class="btn-modern-secondary">View Item</a>
+                                </div>
+
+                                <div class="component-card scroll-fade-in-delay">
+                                    <div class="component-header">
+                                        <h4>Boost Converter</h4>
+                                        <span class="component-qty">Qty x1</span>
+                                    </div>
+                                    <p class="component-desc">5V output (optional)</p>
+                                    <a href="#" class="btn-modern-secondary">View Item</a>
+                                </div>
+
+                                <div class="component-card scroll-fade-in-delay">
+                                    <div class="component-header">
+                                        <h4>Controller</h4>
+                                        <span class="component-qty">Qty x1</span>
+                                    </div>
+                                    <p class="component-desc">CC2500 transmitter or gamepad</p>
+                                    <a href="#" class="btn-modern-secondary">View Item</a>
+                                </div>
+
+                                <div class="component-card scroll-fade-in-delay">
+                                    <div class="component-header">
+                                        <h4>RC Receiver</h4>
+                                        <span class="component-qty">Qty x1</span>
+                                    </div>
+                                    <p class="component-desc">DF500 or compatible (optional)</p>
+                                    <a href="#" class="btn-modern-secondary">View Item</a>
+                                </div>
+
+                                <div class="component-card scroll-fade-in-delay">
+                                    <div class="component-header">
+                                        <h4>28 AWG Wires</h4>
+                                        <span class="component-qty">-</span>
+                                    </div>
+                                    <p class="component-desc">Recommended wire gauge</p>
+                                    <a href="#" class="btn-modern-secondary">View Item</a>
+                                </div>
+
+                                <div class="component-card scroll-fade-in-delay">
+                                    <div class="component-header">
+                                        <h4>Double-sided Tape</h4>
+                                        <span class="component-qty">-</span>
+                                    </div>
+                                    <p class="component-desc">For component mounting</p>
+                                    <a href="#" class="btn-modern-secondary">View Item</a>
+                                </div>
+
+                                <div class="component-card scroll-fade-in-delay">
+                                    <div class="component-header">
+                                        <h4>M3x5 Screws</h4>
+                                        <span class="component-qty">Qty x2</span>
+                                    </div>
+                                    <p class="component-desc">For IMU mounting</p>
+                                    <a href="#" class="btn-modern-secondary">View Item</a>
+                                </div>
+
+                                <div class="component-card scroll-fade-in-delay">
+                                    <div class="component-header">
+                                        <h4>M1.4x5 Screws</h4>
+                                        <span class="component-qty">Qty x4</span>
+                                    </div>
+                                    <p class="component-desc">For frame assembly</p>
+                                    <a href="#" class="btn-modern-secondary">View Item</a>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+                <aside class="downloads-sidebar-right">
+                    <div class="sidebar-section">
+                        <h3>Other Projects</h3>
+                        <div class="project-list">
+                            <a href="downloads.html" class="project-item">
+                                <div class="project-thumbnail">
+                                    <div class="project-placeholder">⬇️</div>
+                                </div>
+                                <div class="project-info">
+                                    <h4>TARS Downloads</h4>
+                                    <p>Components and resources</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy;2025 TARSX</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Downloads Page Navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.downloads-nav .nav-link');
+            const sections = document.querySelectorAll('.downloads-section');
+            
+            // Handle navigation clicks
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Remove active class from all links
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    
+                    // Add active class to clicked link
+                    this.classList.add('active');
+                    
+                    // Smooth scroll to section
+                    const targetId = this.getAttribute('href');
+                    if (targetId && targetId !== '#') {
+                        const targetElement = document.querySelector(targetId);
+                        if (targetElement) {
+                            const offset = 100;
+                            const elementPosition = targetElement.getBoundingClientRect().top;
+                            const offsetPosition = elementPosition + window.pageYOffset - offset;
+                            
+                            window.scrollTo({
+                                top: offsetPosition,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
+            
+            // Update active link on scroll
+            function updateActiveLink() {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.getBoundingClientRect().top;
+                    const sectionId = section.getAttribute('id');
+                    if (sectionTop <= 150) {
+                        current = sectionId;
+                    }
+                });
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === '#' + current) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', updateActiveLink);
+            updateActiveLink();
+        });
+    </script>
+    <script>
+        // Page header slide-up animation on load
+        window.addEventListener('load', () => {
+            const pageHeader = document.querySelector('.page-header');
+            if (pageHeader) {
+                // Add slide-up class after a brief delay
+                setTimeout(() => {
+                    pageHeader.classList.add('slide-up');
+                }, 800);
+            }
+        });
+    </script>
+    <script>
+        // Smooth scroll animations using Intersection Observer
+        // Trigger animation when element is about to enter viewport (50px before)
+        const observerOptions = {
+            threshold: 0,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with scroll animation classes
+        document.addEventListener('DOMContentLoaded', () => {
+            const animatedElements = document.querySelectorAll(
+                '.scroll-fade-in, .scroll-fade-in-delay, .scroll-slide-left, .scroll-slide-right'
+            );
+
+            animatedElements.forEach(el => {
+                // Check if element is already in viewport on load
+                const rect = el.getBoundingClientRect();
+                const viewportHeight = window.innerHeight;
+                const isInViewport = rect.top < viewportHeight + 50 && rect.bottom > -50;
+
+                if (isInViewport) {
+                    // Small delay to ensure smooth initial animation
+                    setTimeout(() => {
+                        el.classList.add('visible');
+                    }, 100);
+                } else {
+                    observer.observe(el);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+

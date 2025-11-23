@@ -1138,6 +1138,68 @@ body::-webkit-scrollbar {
     min-height: 120px;
 }
 
+/* Direct form input styling for contact form */
+.contact-form-modern form input[type="text"],
+.contact-form-modern form input[type="email"],
+.contact-form-modern form textarea {
+    width: 100%;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    color: #FFFFFF;
+    transition: all 0.3s ease;
+    margin-bottom: 1.5rem;
+    box-sizing: border-box;
+}
+
+.contact-form-modern form input[type="text"]::placeholder,
+.contact-form-modern form input[type="email"]::placeholder,
+.contact-form-modern form textarea::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.contact-form-modern form input[type="text"]:focus,
+.contact-form-modern form input[type="email"]:focus,
+.contact-form-modern form textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 0 3px rgba(254, 119, 67, 0.2);
+}
+
+.contact-form-modern form textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.contact-form-modern form button[type="submit"] {
+    width: 100%;
+    padding: 1rem 2rem;
+    background: var(--primary-color);
+    color: #000000;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 0.5rem;
+}
+
+.contact-form-modern form button[type="submit"]:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(254, 119, 67, 0.3);
+}
+
+.contact-form-modern form input[type="hidden"] {
+    display: none;
+}
+
 .btn-modern {
     width: 100%;
     padding: 1rem 2rem;

@@ -8,15 +8,16 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="stars-container"></div>
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="logo">
-                <a href="index.html">
-                    <img src="Resources/White TARSX Wordmark Logo.svg" alt="TarsX Logo">
-                </a>
-            </div>
-            <ul class="nav-menu">
+    <!-- Gradient Background Arc -->
+    <div class="gradient-arc"></div>
+    
+    <!-- Header -->
+    <header class="home-header">
+        <nav class="centered-nav">
+            <a href="index.html" class="nav-logo">
+                <img src="Resources/White TARSX Wordmark Logo.svg" alt="TarsX Logo">
+            </a>
+            <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li class="dropdown">
@@ -30,15 +31,10 @@
                 <li><a href="contact.html">Contact</a></li>
                 <li><a href="support.html">Support</a></li>
             </ul>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </nav>
+        </nav>
+    </header>
 
-    <main>
+    <main class="home-main">
         <section class="page-header">
             <div class="container">
                 <h1 class="scroll-fade-in">Build Log</h1>
@@ -46,7 +42,7 @@
             </div>
         </section>
 
-        <section class="content-section build-log-modern">
+        <section class="build-log-content-wrapper">
             <div class="container build-log-container">
                 <aside class="build-log-sidebar scroll-fade-in">
                     <nav class="build-log-nav">
@@ -329,104 +325,6 @@
             window.addEventListener('scroll', updateActiveLink);
             updateActiveLink(); // Initial check
         });
-    </script>
-    <script>
-        // Optimized moving stars with GPU acceleration
-        (function() {
-            const starsContainer = document.getElementById('stars-container');
-            if (!starsContainer) return;
-            
-            const numStars = 35;
-            const stars = [];
-            let animationId = null;
-            let isVisible = true;
-            const viewport = { width: window.innerWidth, height: window.innerHeight };
-
-            for (let i = 0; i < numStars; i++) {
-                const star = document.createElement('div');
-                star.className = 'star';
-                const x = Math.random() * viewport.width;
-                const y = Math.random() * viewport.height;
-                star.style.transform = `translate(${x}px, ${y}px)`;
-                starsContainer.appendChild(star);
-                stars.push({
-                    element: star,
-                    x: x,
-                    y: y,
-                    vx: (Math.random() - 0.5) * 0.3,
-                    vy: (Math.random() - 0.5) * 0.3
-                });
-            }
-
-            let mouseX = viewport.width / 2;
-            let mouseY = viewport.height / 2;
-            let mouseUpdatePending = false;
-
-            const updateMousePosition = (e) => {
-                mouseX = e.clientX;
-                mouseY = e.clientY;
-                mouseUpdatePending = false;
-            };
-
-            document.addEventListener('mousemove', (e) => {
-                if (!mouseUpdatePending) {
-                    mouseUpdatePending = true;
-                    requestAnimationFrame(() => updateMousePosition(e));
-                }
-            }, { passive: true });
-
-            function animateStars() {
-                if (!isVisible) {
-                    animationId = requestAnimationFrame(animateStars);
-                    return;
-                }
-
-                stars.forEach((star) => {
-                    star.x += star.vx;
-                    star.y += star.vy;
-
-                    if (star.x < 0 || star.x > viewport.width) star.vx *= -1;
-                    if (star.y < 0 || star.y > viewport.height) star.vy *= -1;
-
-                    star.x = Math.max(0, Math.min(viewport.width, star.x));
-                    star.y = Math.max(0, Math.min(viewport.height, star.y));
-
-                    const dx = mouseX - star.x;
-                    const dy = mouseY - star.y;
-                    const distance = Math.sqrt(dx * dx + dy * dy);
-                    const influence = distance > 0 ? Math.min(100 / distance, 0.2) : 0;
-
-                    const finalX = star.x + dx * influence * 0.15;
-                    const finalY = star.y + dy * influence * 0.15;
-
-                    star.element.style.transform = `translate(${finalX}px, ${finalY}px)`;
-                });
-
-                animationId = requestAnimationFrame(animateStars);
-            }
-
-            document.addEventListener('visibilitychange', () => {
-                isVisible = !document.hidden;
-                if (isVisible && !animationId) {
-                    animateStars();
-                }
-            });
-
-            let resizeTimeout;
-            window.addEventListener('resize', () => {
-                clearTimeout(resizeTimeout);
-                resizeTimeout = setTimeout(() => {
-                    viewport.width = window.innerWidth;
-                    viewport.height = window.innerHeight;
-                    stars.forEach((star) => {
-                        star.x = Math.min(star.x, viewport.width);
-                        star.y = Math.min(star.y, viewport.height);
-                    });
-                }, 150);
-            }, { passive: true });
-
-            animateStars();
-        })();
     </script>
     <script>
         // Smooth scroll animations using Intersection Observer

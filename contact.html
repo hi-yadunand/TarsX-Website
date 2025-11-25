@@ -8,15 +8,16 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="stars-container"></div>
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="logo">
-                <a href="index.html">
-                    <img src="Resources/White TARSX Wordmark Logo.svg" alt="TarsX Logo">
-                </a>
-            </div>
-            <ul class="nav-menu">
+    <!-- Gradient Background Arc -->
+    <div class="gradient-arc"></div>
+    
+    <!-- Header -->
+    <header class="home-header">
+        <nav class="centered-nav">
+            <a href="index.html" class="nav-logo">
+                <img src="Resources/White TARSX Wordmark Logo.svg" alt="TarsX Logo">
+            </a>
+            <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li class="dropdown">
@@ -30,13 +31,8 @@
                 <li><a href="contact.html" class="active">Contact</a></li>
                 <li><a href="support.html">Support</a></li>
             </ul>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </nav>
+        </nav>
+    </header>
 
     <!-- Pop-up Modal -->
     <div id="form-modal" class="form-modal">
@@ -49,7 +45,7 @@
         </div>
     </div>
 
-    <main>
+    <main class="home-main">
         <section class="page-header">
             <div class="container">
                 <h1 class="scroll-fade-in">Contact Me</h1>
@@ -57,7 +53,7 @@
             </div>
         </section>
 
-        <section class="content-section contact-modern">
+        <section class="contact-content-wrapper">
             <div class="container">
                 <div class="contact-grid">
                     <div class="contact-form-modern scroll-slide-left">

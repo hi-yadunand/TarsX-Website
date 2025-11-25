@@ -30,27 +30,17 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 
-<body>
-    <div id="stars-container"></div>
-    <div class="scroll-arrow"></div>
-    <div class="time-display">
-        <div class="time-card">
-            <div class="time-label">UTC Time (Earth)</div>
-            <div class="time-value" id="utc-time">00:00:00</div>
-        </div>
-        <div class="time-card">
-            <div class="time-label">MTC Time (Mars)</div>
-            <div class="time-value" id="mtc-time">00:00:00</div>
-        </div>
-    </div>
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="logo">
-                <a href="index.html">
-                    <img src="Resources/White TARSX Wordmark Logo.svg" alt="TarsX Logo">
-                </a>
-            </div>
-            <ul class="nav-menu">
+<body class="homepage">
+    <!-- Gradient Background Arc -->
+    <div class="gradient-arc"></div>
+    
+    <!-- Header -->
+    <header class="home-header">
+        <nav class="centered-nav">
+            <a href="index.html" class="nav-logo">
+                <img src="Resources/White TARSX Wordmark Logo.svg" alt="TarsX Logo">
+            </a>
+            <ul class="nav-links">
                 <li><a href="index.html" class="active">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li class="dropdown">
@@ -64,53 +54,50 @@
                 <li><a href="contact.html">Contact</a></li>
                 <li><a href="support.html">Support</a></li>
             </ul>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+        </nav>
+    </header>
+
+    <!-- Main Hero Section -->
+    <main class="home-main">
+        <div class="hero-container">
+            <h1 class="hero-headline">
+                <span class="hero-line-1">Where intelligence isn't</span>
+                <span class="hero-line-2">programmed— it's evolved.</span>
+            </h1>
+            <p class="hero-description">
+                TarsX is building a functional <strong>TARS replica</strong> inspired by Interstellar. 
+                Where science fiction becomes reality, and robots don't just follow commands— they think, learn, and evolve.
+            </p>
+            
+            <div class="hero-cta-section">
+                <form class="email-form" id="home-email-form">
+                    <input 
+                        type="email" 
+                        placeholder="Enter your email" 
+                        class="email-input" 
+                        id="home-email-input"
+                        required
+                    >
+                    <button type="submit" class="email-submit-btn">Get Updates</button>
+                </form>
+                <p class="cta-note">Stay updated on our build progress and milestones.</p>
             </div>
         </div>
-    </nav>
 
-    <main>
-        <section class="hero">
-            <!-- Optional: Add video background by uncommenting and adding your video file -->
-            <!-- 
-            <div class="hero-video">
-                <video autoplay muted loop playsinline>
-                    <source src="Resources/hero-video.mp4" type="video/mp4">
-                    <source src="Resources/hero-video.webm" type="video/webm">
-                </video>
+        <!-- Status Card -->
+        <div class="status-card">
+            <div class="status-icon">⭐</div>
+            <div class="status-content">
+                <div class="status-label">Building TARS</div>
+                <div class="status-value" id="build-progress">In Progress</div>
             </div>
-            -->
-            <div class="hero-content">
-                <h1 class="scroll-fade-in">COMING SOON.</h1>
-                <p class="hero-subtitle scroll-fade-in-delay">Where intelligence isn't programmed— it's evolved.</p>
-            </div>
-        </section>
+        </div>
 
-        <section class="tars-section">
-            <div class="tars-container">
-                <div class="tars-title scroll-slide-left">TARS</div>
-                <div class="tars-content scroll-slide-right">
-                    <p class="tars-description">
-                        They called it impossible. We called it a robot that thinks,<br>
-                        learns, and jokes back. Where intelligence isn't programmed<br>
-                        — it's evolved.
-                    </p>
-                    <a href="build-log.html" class="tars-link">Build Log →</a>
-                </div>
-                <div class="tars-tagline scroll-fade-in-delay">
-                    <div class="tagline-line"></div>
-                    <div class="tagline-text">
-                        <span>Where</span>
-                        <span class="tagline-highlight">Sci-Fi</span>
-                        <span>Becomes Real.</span>
-                    </div>
-                </div>
-                <div class="tars-x scroll-fade-in">X</div>
-            </div>
-        </section>
+        <!-- Tagline -->
+        <div class="home-tagline">
+            <div class="tagline-line"></div>
+            <span class="tagline-text">Where Sci-Fi Becomes Real</span>
+        </div>
     </main>
 
     <footer>
@@ -123,239 +110,25 @@
 
     <script src="script.js"></script>
     <script>
-        // Optimized moving stars with GPU acceleration
-        (function() {
-            const starsContainer = document.getElementById('stars-container');
-            if (!starsContainer) return;
-            
-            const numStars = 35;
-            const stars = [];
-            let animationId = null;
-            let isVisible = true;
-            const viewport = { width: window.innerWidth, height: window.innerHeight };
-
-            // Create stars with random initial positions
-            for (let i = 0; i < numStars; i++) {
-                const star = document.createElement('div');
-                star.className = 'star';
-                const x = Math.random() * viewport.width;
-                const y = Math.random() * viewport.height;
-                star.style.transform = `translate(${x}px, ${y}px)`;
-                starsContainer.appendChild(star);
-                stars.push({
-                    element: star,
-                    x: x,
-                    y: y,
-                    vx: (Math.random() - 0.5) * 0.3,
-                    vy: (Math.random() - 0.5) * 0.3
-                });
-            }
-
-            // Mouse position - throttled
-            let mouseX = viewport.width / 2;
-            let mouseY = viewport.height / 2;
-            let mouseUpdatePending = false;
-
-            const updateMousePosition = (e) => {
-                mouseX = e.clientX;
-                mouseY = e.clientY;
-                mouseUpdatePending = false;
-            };
-
-            document.addEventListener('mousemove', (e) => {
-                if (!mouseUpdatePending) {
-                    mouseUpdatePending = true;
-                    requestAnimationFrame(() => updateMousePosition(e));
-                }
-            }, { passive: true });
-
-            // Optimized star animation using transform (GPU accelerated)
-            function animateStars() {
-                if (!isVisible) {
-                    animationId = requestAnimationFrame(animateStars);
-                    return;
-                }
-
-                stars.forEach((star) => {
-                    star.x += star.vx;
-                    star.y += star.vy;
-
-                    // Bounce off edges
-                    if (star.x < 0 || star.x > viewport.width) star.vx *= -1;
-                    if (star.y < 0 || star.y > viewport.height) star.vy *= -1;
-
-                    star.x = Math.max(0, Math.min(viewport.width, star.x));
-                    star.y = Math.max(0, Math.min(viewport.height, star.y));
-
-                    // Cursor influence
-                    const dx = mouseX - star.x;
-                    const dy = mouseY - star.y;
-                    const distance = Math.sqrt(dx * dx + dy * dy);
-                    const influence = distance > 0 ? Math.min(100 / distance, 0.2) : 0;
-
-                    const finalX = star.x + dx * influence * 0.15;
-                    const finalY = star.y + dy * influence * 0.15;
-
-                    // Use transform instead of left/top for GPU acceleration
-                    star.element.style.transform = `translate(${finalX}px, ${finalY}px)`;
-                });
-
-                animationId = requestAnimationFrame(animateStars);
-            }
-
-            // Pause animation when tab is hidden
-            document.addEventListener('visibilitychange', () => {
-                isVisible = !document.hidden;
-                if (isVisible && !animationId) {
-                    animateStars();
-                }
-            });
-
-            // Throttled resize handler
-            let resizeTimeout;
-            window.addEventListener('resize', () => {
-                clearTimeout(resizeTimeout);
-                resizeTimeout = setTimeout(() => {
-                    viewport.width = window.innerWidth;
-                    viewport.height = window.innerHeight;
-                    stars.forEach((star) => {
-                        star.x = Math.min(star.x, viewport.width);
-                        star.y = Math.min(star.y, viewport.height);
-                    });
-                }, 150);
-            }, { passive: true });
-
-            animateStars();
-        })();
-    </script>
-    <script>
-        // Mars Coordinated Time (MTC) Calculator
-        // MTC epoch: January 1, 2000, 12:00:00 UTC
-        const MTC_EPOCH = new Date('2000-01-01T12:00:00Z').getTime();
-        const EARTH_SECONDS_PER_DAY = 86400;
-        const MARS_SECONDS_PER_SOL = 88775.244;
-        const TIME_RATIO = EARTH_SECONDS_PER_DAY / MARS_SECONDS_PER_SOL;
-
-        function formatTime(hours, minutes, seconds) {
-            return String(hours).padStart(2, '0') + ':' +
-                String(minutes).padStart(2, '0') + ':' +
-                String(seconds).padStart(2, '0');
-        }
-
-        function calculateMTC(utcDate) {
-            // Calculate seconds since MTC epoch
-            const secondsSinceEpoch = (utcDate.getTime() - MTC_EPOCH) / 1000;
-
-            // Convert to Mars time
-            const marsSecondsSinceEpoch = secondsSinceEpoch * TIME_RATIO;
-
-            // Calculate MTC time (starting from epoch MTC = 12:00:00)
-            const totalMarsSeconds = marsSecondsSinceEpoch + (12 * 3600); // Add 12 hours for epoch
-
-            // Handle negative values (before epoch)
-            const marsDays = Math.floor(totalMarsSeconds / MARS_SECONDS_PER_SOL);
-            const secondsInCurrentSol = totalMarsSeconds % MARS_SECONDS_PER_SOL;
-
-            // If negative, adjust
-            const adjustedSeconds = secondsInCurrentSol < 0
-                ? secondsInCurrentSol + MARS_SECONDS_PER_SOL
-                : secondsInCurrentSol;
-
-            const hours = Math.floor(adjustedSeconds / 3600) % 24;
-            const minutes = Math.floor((adjustedSeconds % 3600) / 60);
-            const seconds = Math.floor(adjustedSeconds % 60);
-
-            return { hours, minutes, seconds };
-        }
-
-        function updateTimes() {
-            const now = new Date();
-
-            // Update UTC time
-            const utcHours = now.getUTCHours();
-            const utcMinutes = now.getUTCMinutes();
-            const utcSeconds = now.getUTCSeconds();
-            document.getElementById('utc-time').textContent = formatTime(utcHours, utcMinutes, utcSeconds);
-
-            // Calculate and update MTC time
-            const mtc = calculateMTC(now);
-            document.getElementById('mtc-time').textContent = formatTime(mtc.hours, mtc.minutes, mtc.seconds);
-        }
-
-        // Update immediately and then every second
-        updateTimes();
-        setInterval(updateTimes, 1000);
-    </script>
-    <script>
-        // Fade arrow on scroll
-        const scrollArrow = document.querySelector('.scroll-arrow');
-
-        function fadeArrowOnScroll() {
-            const scrollY = window.scrollY;
-            const fadeStart = 100; // Start fading after 100px of scroll
-            const fadeEnd = 300; // Completely faded at 300px
-
-            if (scrollY < fadeStart) {
-                scrollArrow.style.opacity = '1';
-            } else if (scrollY > fadeEnd) {
-                scrollArrow.style.opacity = '0';
-            } else {
-                // Calculate opacity based on scroll position
-                const fadeProgress = (scrollY - fadeStart) / (fadeEnd - fadeStart);
-                scrollArrow.style.opacity = (1 - fadeProgress).toString();
-            }
-        }
-
-        // Throttle scroll handler
-        let scrollTimeout;
-        const throttledFadeArrow = () => {
-            if (!scrollTimeout) {
-                scrollTimeout = requestAnimationFrame(() => {
-                    fadeArrowOnScroll();
-                    scrollTimeout = null;
-                });
-            }
-        };
-        window.addEventListener('scroll', throttledFadeArrow, { passive: true });
-        fadeArrowOnScroll(); // Initial call
-    </script>
-    <script>
-        // Smooth scroll animations using Intersection Observer
-        // Trigger animation when element is about to enter viewport (50px before)
-        const observerOptions = {
-            threshold: 0,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        // Observe all elements with scroll animation classes
+        // Email form handler
         document.addEventListener('DOMContentLoaded', () => {
-            const animatedElements = document.querySelectorAll(
-                '.scroll-fade-in, .scroll-fade-in-delay, .scroll-slide-left, .scroll-slide-right'
-            );
-
-            animatedElements.forEach(el => {
-                // Check if element is already in viewport on load
-                const rect = el.getBoundingClientRect();
-                const viewportHeight = window.innerHeight;
-                const isInViewport = rect.top < viewportHeight + 50 && rect.bottom > -50;
-
-                if (isInViewport) {
-                    // Small delay to ensure smooth initial animation
-                    setTimeout(() => {
-                        el.classList.add('visible');
-                    }, 100);
-                } else {
-                    observer.observe(el);
-                }
-            });
+            const emailForm = document.getElementById('home-email-form');
+            const emailInput = document.getElementById('home-email-input');
+            
+            if (emailForm) {
+                emailForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const email = emailInput.value;
+                    
+                    // Simple validation
+                    if (email && email.includes('@')) {
+                        // Here you would typically send to your email service
+                        // For now, just show a success message
+                        alert('Thank you! We\'ll keep you updated on TarsX progress.');
+                        emailInput.value = '';
+                    }
+                });
+            }
         });
     </script>
 </body>

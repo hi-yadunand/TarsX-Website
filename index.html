@@ -5,24 +5,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TarsX - Where Sci-Fi Becomes Real</title>
-    <meta name="description" content="TarsX is an ambitious robotics project building a functional TARS replica inspired by Interstellar. Explore build logs, download resources, and follow the journey of turning science fiction into reality.">
-    <meta name="keywords" content="TarsX, TARS robot, Interstellar, robotics, AI, DronX, drone technology, build log, open source robotics">
+    <meta name="description"
+        content="TarsX is an ambitious robotics project building a functional TARS replica inspired by Interstellar. Explore build logs, download resources, and follow the journey of turning science fiction into reality.">
+    <meta name="keywords"
+        content="TarsX, TARS robot, Interstellar, robotics, AI, DronX, drone technology, build log, open source robotics">
     <meta name="author" content="TarsX">
-    
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://tarsx.space/">
     <meta property="og:title" content="TarsX - Where Sci-Fi Becomes Real">
-    <meta property="og:description" content="Building a functional TARS robot replica inspired by Interstellar. Explore build logs, download resources, and follow the journey of turning science fiction into reality.">
+    <meta property="og:description"
+        content="Building a functional TARS robot replica inspired by Interstellar. Explore build logs, download resources, and follow the journey of turning science fiction into reality.">
     <meta property="og:image" content="https://tarsx.space/Resources/TARSX Logo White.svg">
-    
+
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://tarsx.space/">
     <meta property="twitter:title" content="TarsX - Where Sci-Fi Becomes Real">
-    <meta property="twitter:description" content="Building a functional TARS robot replica inspired by Interstellar. Explore build logs, download resources, and follow the journey of turning science fiction into reality.">
+    <meta property="twitter:description"
+        content="Building a functional TARS robot replica inspired by Interstellar. Explore build logs, download resources, and follow the journey of turning science fiction into reality.">
     <meta property="twitter:image" content="https://tarsx.space/Resources/TARSX Logo White.svg">
-    
+
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,7 +37,7 @@
 <body class="homepage">
     <!-- Gradient Background Arc -->
     <div class="gradient-arc"></div>
-    
+
     <!-- Header -->
     <header class="home-header">
         <nav class="centered-nav">
@@ -65,19 +69,15 @@
                 <span class="hero-line-2">programmed— it's evolved.</span>
             </h1>
             <p class="hero-description">
-                TarsX is building a functional <strong>TARS replica</strong> inspired by Interstellar. 
-                Where science fiction becomes reality, and robots don't just follow commands— they think, learn, and evolve.
+                TarsX is building a functional <strong>TARS replica</strong> inspired by Interstellar.
+                Where science fiction becomes reality, and robots don't just follow commands— they think, learn, and
+                evolve.
             </p>
-            
+
             <div class="hero-cta-section">
                 <form class="email-form" id="home-email-form">
-                    <input 
-                        type="email" 
-                        placeholder="Enter your email" 
-                        class="email-input" 
-                        id="home-email-input"
-                        required
-                    >
+                    <input type="email" placeholder="Enter your email" class="email-input" id="home-email-input"
+                        required>
                     <button type="submit" class="email-submit-btn">Get Updates</button>
                 </form>
                 <p class="cta-note">Stay updated on our build progress and milestones.</p>
@@ -114,12 +114,12 @@
         document.addEventListener('DOMContentLoaded', () => {
             const emailForm = document.getElementById('home-email-form');
             const emailInput = document.getElementById('home-email-input');
-            
+
             if (emailForm) {
                 emailForm.addEventListener('submit', (e) => {
                     e.preventDefault();
                     const email = emailInput.value;
-                    
+
                     // Simple validation
                     if (email && email.includes('@')) {
                         // Here you would typically send to your email service

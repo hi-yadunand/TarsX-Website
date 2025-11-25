@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,15 +8,16 @@
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <!-- Gradient Background Arc -->
     <div class="gradient-arc"></div>
-    
+
     <!-- Header -->
     <header class="home-header">
         <nav class="centered-nav">
             <a href="index.html" class="nav-logo">
-                <img src="Resources/White TARSX Wordmark Logo.svg" alt="TarsX Logo">
+                <img src="Resources/TARSX Logo White.svg" alt="TarsX Logo">
             </a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
@@ -68,7 +70,7 @@
                             <textarea name="message" placeholder="Your Message" required></textarea>
                             <div class="h-captcha" data-captcha="true"></div>
                             <button type="submit">Submit Form</button>
-                          </form>
+                        </form>
                     </div>
 
                     <div class="contact-links-modern scroll-slide-right">
@@ -122,10 +124,10 @@
     <script src="script.js"></script>
     <script>
         // Optimized moving stars with GPU acceleration
-        (function() {
+        (function () {
             const starsContainer = document.getElementById('stars-container');
             if (!starsContainer) return;
-            
+
             const numStars = 35;
             const stars = [];
             let animationId = null;
@@ -239,13 +241,13 @@
             const animatedElements = document.querySelectorAll(
                 '.scroll-fade-in, .scroll-fade-in-delay, .scroll-slide-left, .scroll-slide-right'
             );
-            
+
             animatedElements.forEach(el => {
                 // Check if element is already in viewport on load
                 const rect = el.getBoundingClientRect();
                 const viewportHeight = window.innerHeight;
                 const isInViewport = rect.top < viewportHeight + 50 && rect.bottom > -50;
-                
+
                 if (isInViewport) {
                     // Small delay to ensure smooth initial animation
                     setTimeout(() => {
@@ -276,10 +278,10 @@
             const modalIcon = document.getElementById('modal-icon');
             const modalTitle = document.getElementById('modal-title');
             const modalMessage = document.getElementById('modal-message');
-            
+
             modalTitle.textContent = title;
             modalMessage.textContent = message;
-            
+
             // Set icon based on type
             if (type === 'success') {
                 modalIcon.innerHTML = '✓';
@@ -288,15 +290,15 @@
                 modalIcon.innerHTML = '✕';
                 modalIcon.className = 'modal-icon error';
             }
-            
+
             modal.classList.add('active');
-            
+
             // Close modal on button click
             document.getElementById('modal-close-btn').onclick = closeModal;
-            
+
             // Close modal on overlay click
             document.querySelector('.modal-overlay').onclick = closeModal;
-            
+
             // Close modal on Escape key
             document.addEventListener('keydown', function escapeHandler(e) {
                 if (e.key === 'Escape' && modal.classList.contains('active')) {
@@ -305,12 +307,12 @@
                 }
             });
         }
-        
+
         function closeModal() {
             const modal = document.getElementById('form-modal');
             modal.classList.remove('active');
         }
-        
+
         // Web3 Forms submission handler
         const form = document.querySelector('.contact-form-modern form');
         if (form) {
@@ -352,5 +354,5 @@
     </script>
     <script src="https://web3forms.com/client/script.js" async defer></script>
 </body>
-</html>
 
+</html>

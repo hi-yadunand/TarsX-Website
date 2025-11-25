@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,15 +8,16 @@
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <!-- Gradient Background Arc -->
     <div class="gradient-arc"></div>
-    
+
     <!-- Header -->
     <header class="home-header">
         <nav class="centered-nav">
             <a href="index.html" class="nav-logo">
-                <img src="Resources/White TARSX Wordmark Logo.svg" alt="TarsX Logo">
+                <img src="Resources/TARSX Logo White.svg" alt="TarsX Logo">
             </a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
@@ -61,13 +63,29 @@
                                 <h2>Story</h2>
                             </div>
                             <div class="section-content">
-                                <p>For the past eight years, a single scene from Interstellar has stayed with me, not because of the galaxies, not because of science, but because of a robot. TARS, with its unique design and personality, became a constant reminder of everything that I love: space, science fiction, and cutting-edge technology. Movies like Interstellar, Don’t Look Up, and countless other sci-fi films have shaped my curiosity about innovation and what the future could look like.</p>
-                                <p>Growing up, I was fascinated by robotics and engineering, the kind of advancements that push humanity forward. Back then, all I could do was imagine building something like TARS. I didn’t have the tools, the resources, or the knowledge to turn that dream into reality.</p>
+                                <p>For the past eight years, a single scene from Interstellar has stayed with me, not
+                                    because of the galaxies, not because of science, but because of a robot. TARS, with
+                                    its unique design and personality, became a constant reminder of everything that I
+                                    love: space, science fiction, and cutting-edge technology. Movies like Interstellar,
+                                    Don’t Look Up, and countless other sci-fi films have shaped my curiosity about
+                                    innovation and what the future could look like.</p>
+                                <p>Growing up, I was fascinated by robotics and engineering, the kind of advancements
+                                    that push humanity forward. Back then, all I could do was imagine building something
+                                    like TARS. I didn’t have the tools, the resources, or the knowledge to turn that
+                                    dream into reality.</p>
                                 <p>But everything changed.</p>
-                                <p>Over the years, I learned, experimented, and built. I explored engineering, AI, and robotics deeply not just as interests, but as skills. Slowly, the idea that once felt impossible began to feel achievable. I gained the confidence, the technical understanding, and the drive to finally bring my vision to life.</p>
-                                <p>This year, I decided to stop dreaming and start building. I’m creating my own version of TARS—designed from scratch, engineered with passion, and integrated with AI. It’s more than a robot. It’s the realization of a childhood dream I’ve carried with me for years. Every line of code, every design sketch, and every prototype brings me closer to turning fiction into reality.</p>
+                                <p>Over the years, I learned, experimented, and built. I explored engineering, AI, and
+                                    robotics deeply not just as interests, but as skills. Slowly, the idea that once
+                                    felt impossible began to feel achievable. I gained the confidence, the technical
+                                    understanding, and the drive to finally bring my vision to life.</p>
+                                <p>This year, I decided to stop dreaming and start building. I’m creating my own version
+                                    of TARS—designed from scratch, engineered with passion, and integrated with AI. It’s
+                                    more than a robot. It’s the realization of a childhood dream I’ve carried with me
+                                    for years. Every line of code, every design sketch, and every prototype brings me
+                                    closer to turning fiction into reality.</p>
                                 <p>This isn’t just a project.
-                                    It’s the fulfillment of a promise I made to myself a long time agoto build something extraordinary.
+                                    It’s the fulfillment of a promise I made to myself a long time agoto build something
+                                    extraordinary.
                                 <p>Welcome to TARSX. You’re witnessing the beginning of that journey.</p>
                             </div>
                         </section>
@@ -78,7 +96,11 @@
                                 <h2>Vision</h2>
                             </div>
                             <div class="section-content">
-                                <p>To transform imagination into reality by building intelligent, human-supporting robots that push the boundaries of innovation. Inspired by the spirit of science fiction and powered by modern engineering and AI, my vision is to create technology that not only solves problems, but also inspires the next generation to dream boldly.</p>
+                                <p>To transform imagination into reality by building intelligent, human-supporting
+                                    robots that push the boundaries of innovation. Inspired by the spirit of science
+                                    fiction and powered by modern engineering and AI, my vision is to create technology
+                                    that not only solves problems, but also inspires the next generation to dream
+                                    boldly.</p>
                             </div>
                         </section>
 
@@ -88,8 +110,12 @@
                                 <h2>Purpose</h2>
                             </div>
                             <div class="section-content">
-                                <p>To build a functional, AI-driven version of TARS that reflects the curiosity, creativity, and ambition that first inspired this project.</p>
-                                <p>My purpose is to explore whatever is possible when passion meets engineering, creating robotics that are practical, innovative, and designed to support real human needs. This project exists to learn, experiment, and push forward the boundaries of what an individual can build.</p>
+                                <p>To build a functional, AI-driven version of TARS that reflects the curiosity,
+                                    creativity, and ambition that first inspired this project.</p>
+                                <p>My purpose is to explore whatever is possible when passion meets engineering,
+                                    creating robotics that are practical, innovative, and designed to support real human
+                                    needs. This project exists to learn, experiment, and push forward the boundaries of
+                                    what an individual can build.</p>
                             </div>
                         </section>
                     </div>
@@ -125,21 +151,21 @@
     <script src="script.js"></script>
     <script>
         // About Page Sidebar Navigation
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const navLinks = document.querySelectorAll('.build-log-nav .nav-link');
             const sections = document.querySelectorAll('.build-log-section');
-            
+
             // Handle navigation clicks
             navLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
+                link.addEventListener('click', function (e) {
                     e.preventDefault();
-                    
+
                     // Remove active class from all links
                     navLinks.forEach(l => l.classList.remove('active'));
-                    
+
                     // Add active class to clicked link
                     this.classList.add('active');
-                    
+
                     // Smooth scroll to section
                     const targetId = this.getAttribute('href');
                     if (targetId && targetId !== '#') {
@@ -148,7 +174,7 @@
                             const offset = 100; // Offset for fixed navbar
                             const elementPosition = targetElement.getBoundingClientRect().top;
                             const offsetPosition = elementPosition + window.pageYOffset - offset;
-                            
+
                             window.scrollTo({
                                 top: offsetPosition,
                                 behavior: 'smooth'
@@ -157,7 +183,7 @@
                     }
                 });
             });
-            
+
             // Update active link on scroll
             function updateActiveLink() {
                 let current = '';
@@ -168,7 +194,7 @@
                         current = sectionId;
                     }
                 });
-                
+
                 navLinks.forEach(link => {
                     link.classList.remove('active');
                     if (link.getAttribute('href') === '#' + current) {
@@ -176,7 +202,7 @@
                     }
                 });
             }
-            
+
             // Update on scroll
             window.addEventListener('scroll', updateActiveLink);
             updateActiveLink(); // Initial check
@@ -203,13 +229,13 @@
             const animatedElements = document.querySelectorAll(
                 '.scroll-fade-in, .scroll-fade-in-delay, .scroll-slide-left, .scroll-slide-right'
             );
-            
+
             animatedElements.forEach(el => {
                 // Check if element is already in viewport on load
                 const rect = el.getBoundingClientRect();
                 const viewportHeight = window.innerHeight;
                 const isInViewport = rect.top < viewportHeight + 50 && rect.bottom > -50;
-                
+
                 if (isInViewport) {
                     // Small delay to ensure smooth initial animation
                     setTimeout(() => {
@@ -234,5 +260,5 @@
         });
     </script>
 </body>
-</html>
 
+</html>

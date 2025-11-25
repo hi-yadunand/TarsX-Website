@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,15 +8,16 @@
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <!-- Gradient Background Arc -->
     <div class="gradient-arc"></div>
-    
+
     <!-- Header -->
     <header class="home-header">
         <nav class="centered-nav">
             <a href="index.html" class="nav-logo">
-                <img src="Resources/White TARSX Wordmark Logo.svg" alt="TarsX Logo">
+                <img src="Resources/TARSX Logo White.svg" alt="TarsX Logo">
             </a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
@@ -59,18 +61,21 @@
                         <section id="support-work" class="downloads-section scroll-slide-left">
                             <div class="section-intro">
                                 <h2>Support My Work</h2>
-                                <p>Big or small, your support means the world to me. Let's build the future—one idea at a time. 💡🤖🚀</p>
+                                <p>Big or small, your support means the world to me. Let's build the future—one idea at
+                                    a time. 💡🤖🚀</p>
                             </div>
 
                             <div class="download-item-card scroll-fade-in-delay">
                                 <div class="download-item-header">
                                     <h3>Buy Me a Coffee</h3>
                                 </div>
-                                <p class="download-item-desc">Help fuel the development of TARSX and future projects. Every contribution helps bring ideas to life.</p>
+                                <p class="download-item-desc">Help fuel the development of TARSX and future projects.
+                                    Every contribution helps bring ideas to life.</p>
                                 <a href="https://buymeacoffee.com/yadunand" target="_blank" class="btn-modern">
                                     <span>Support Now</span>
                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                        <path d="M4 10H16M16 10L12 6M16 10L12 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                        <path d="M4 10H16M16 10L12 6M16 10L12 14" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" />
                                     </svg>
                                 </a>
                             </div>
@@ -80,7 +85,8 @@
                         <section id="resources" class="downloads-section scroll-fade-in-delay">
                             <div class="section-intro">
                                 <h2>Additional Resources</h2>
-                                <p>Find documentation, tutorials, and community resources to help you get the most out of TARSX.</p>
+                                <p>Find documentation, tutorials, and community resources to help you get the most out
+                                    of TARSX.</p>
                             </div>
 
                             <div class="guides-grid">
@@ -92,7 +98,8 @@
 
                                 <div class="guide-card scroll-fade-in-delay">
                                     <h4>Video Tutorials</h4>
-                                    <p>Step-by-step video guides covering setup, configuration, and advanced features.</p>
+                                    <p>Step-by-step video guides covering setup, configuration, and advanced features.
+                                    </p>
                                     <a href="#" class="btn-modern-secondary">Watch Videos</a>
                                 </div>
 
@@ -121,11 +128,13 @@
                                 <div class="download-item-header">
                                     <h3>Contact Me</h3>
                                 </div>
-                                <p class="download-item-desc">Get in touch with questions, feedback, or collaboration ideas. I typically respond within 24-48 hours.</p>
+                                <p class="download-item-desc">Get in touch with questions, feedback, or collaboration
+                                    ideas. I typically respond within 24-48 hours.</p>
                                 <a href="contact.html" class="btn-modern">
                                     <span>Go to Contact</span>
                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                        <path d="M4 10H16M16 10L12 6M16 10L12 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                        <path d="M4 10H16M16 10L12 6M16 10L12 14" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" />
                                     </svg>
                                 </a>
                             </div>
@@ -147,21 +156,21 @@
     <script src="script.js"></script>
     <script>
         // Support Page Sidebar Navigation
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const navLinks = document.querySelectorAll('.downloads-nav .nav-link');
             const sections = document.querySelectorAll('.downloads-section');
-            
+
             // Handle navigation clicks
             navLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
+                link.addEventListener('click', function (e) {
                     e.preventDefault();
-                    
+
                     // Remove active class from all links
                     navLinks.forEach(l => l.classList.remove('active'));
-                    
+
                     // Add active class to clicked link
                     this.classList.add('active');
-                    
+
                     // Smooth scroll to section
                     const targetId = this.getAttribute('href');
                     if (targetId && targetId !== '#') {
@@ -170,7 +179,7 @@
                             const offset = 100; // Offset for fixed navbar
                             const elementPosition = targetElement.getBoundingClientRect().top;
                             const offsetPosition = elementPosition + window.pageYOffset - offset;
-                            
+
                             window.scrollTo({
                                 top: offsetPosition,
                                 behavior: 'smooth'
@@ -179,7 +188,7 @@
                     }
                 });
             });
-            
+
             // Update active link on scroll
             function updateActiveLink() {
                 let current = '';
@@ -190,7 +199,7 @@
                         current = sectionId;
                     }
                 });
-                
+
                 navLinks.forEach(link => {
                     link.classList.remove('active');
                     if (link.getAttribute('href') === '#' + current) {
@@ -198,7 +207,7 @@
                     }
                 });
             }
-            
+
             // Update on scroll
             window.addEventListener('scroll', updateActiveLink);
             updateActiveLink(); // Initial check
@@ -206,10 +215,10 @@
     </script>
     <script>
         // Optimized moving stars with GPU acceleration
-        (function() {
+        (function () {
             const starsContainer = document.getElementById('stars-container');
             if (!starsContainer) return;
-            
+
             const numStars = 35;
             const stars = [];
             let animationId = null;
@@ -323,13 +332,13 @@
             const animatedElements = document.querySelectorAll(
                 '.scroll-fade-in, .scroll-fade-in-delay, .scroll-slide-left, .scroll-slide-right'
             );
-            
+
             animatedElements.forEach(el => {
                 // Check if element is already in viewport on load
                 const rect = el.getBoundingClientRect();
                 const viewportHeight = window.innerHeight;
                 const isInViewport = rect.top < viewportHeight + 50 && rect.bottom > -50;
-                
+
                 if (isInViewport) {
                     // Small delay to ensure smooth initial animation
                     setTimeout(() => {
@@ -354,5 +363,5 @@
         });
     </script>
 </body>
-</html>
 
+</html>

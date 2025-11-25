@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,15 +8,16 @@
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <!-- Gradient Background Arc -->
     <div class="gradient-arc"></div>
-    
+
     <!-- Header -->
     <header class="home-header">
         <nav class="centered-nav">
             <a href="index.html" class="nav-logo">
-                <img src="Resources/White TARSX Wordmark Logo.svg" alt="TarsX Logo">
+                <img src="Resources/TARSX Logo White.svg" alt="TarsX Logo">
             </a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
@@ -67,11 +69,13 @@
                                 <div class="download-item-header">
                                     <h3>TARSX Source Code</h3>
                                 </div>
-                                <p class="download-item-desc">Full GitHub repository with the latest scripts and updates.</p>
+                                <p class="download-item-desc">Full GitHub repository with the latest scripts and
+                                    updates.</p>
                                 <a href="#" class="btn-modern">
                                     <span>Open GitHub</span>
                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                        <path d="M4 10H16M16 10L12 6M16 10L12 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                        <path d="M4 10H16M16 10L12 6M16 10L12 14" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" />
                                     </svg>
                                 </a>
                             </div>
@@ -112,7 +116,8 @@
 
                                 <div class="guide-card scroll-fade-in-delay">
                                     <h4>Controller Setup</h4>
-                                    <p>Use evtest to identify the controller event path and wire it into the scripts.</p>
+                                    <p>Use evtest to identify the controller event path and wire it into the scripts.
+                                    </p>
                                     <a href="#" class="btn-modern-secondary">View Guide</a>
                                 </div>
 
@@ -334,21 +339,21 @@
     <script src="script.js"></script>
     <script>
         // Downloads Page Navigation
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const navLinks = document.querySelectorAll('.downloads-nav .nav-link');
             const sections = document.querySelectorAll('.downloads-section');
-            
+
             // Handle navigation clicks
             navLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
+                link.addEventListener('click', function (e) {
                     e.preventDefault();
-                    
+
                     // Remove active class from all links
                     navLinks.forEach(l => l.classList.remove('active'));
-                    
+
                     // Add active class to clicked link
                     this.classList.add('active');
-                    
+
                     // Smooth scroll to section
                     const targetId = this.getAttribute('href');
                     if (targetId && targetId !== '#') {
@@ -357,7 +362,7 @@
                             const offset = 100;
                             const elementPosition = targetElement.getBoundingClientRect().top;
                             const offsetPosition = elementPosition + window.pageYOffset - offset;
-                            
+
                             window.scrollTo({
                                 top: offsetPosition,
                                 behavior: 'smooth'
@@ -366,7 +371,7 @@
                     }
                 });
             });
-            
+
             // Update active link on scroll
             function updateActiveLink() {
                 let current = '';
@@ -377,7 +382,7 @@
                         current = sectionId;
                     }
                 });
-                
+
                 navLinks.forEach(link => {
                     link.classList.remove('active');
                     if (link.getAttribute('href') === '#' + current) {
@@ -385,7 +390,7 @@
                     }
                 });
             }
-            
+
             window.addEventListener('scroll', updateActiveLink);
             updateActiveLink();
         });
@@ -411,13 +416,13 @@
             const animatedElements = document.querySelectorAll(
                 '.scroll-fade-in, .scroll-fade-in-delay, .scroll-slide-left, .scroll-slide-right'
             );
-            
+
             animatedElements.forEach(el => {
                 // Check if element is already in viewport on load
                 const rect = el.getBoundingClientRect();
                 const viewportHeight = window.innerHeight;
                 const isInViewport = rect.top < viewportHeight + 50 && rect.bottom > -50;
-                
+
                 if (isInViewport) {
                     // Small delay to ensure smooth initial animation
                     setTimeout(() => {
@@ -442,5 +447,5 @@
         });
     </script>
 </body>
-</html>
 
+</html>

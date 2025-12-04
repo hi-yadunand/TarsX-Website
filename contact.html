@@ -164,6 +164,18 @@
 
                 hamburger.addEventListener('click', toggleMenu);
 
+                // Close menu when clicking outside (on the blurred background)
+                document.addEventListener('click', (e) => {
+                    if (navLinks.classList.contains('active') &&
+                        !navLinks.contains(e.target) &&
+                        !hamburger.contains(e.target)) {
+                        hamburger.classList.remove('active');
+                        navLinks.classList.remove('active');
+                        document.body.classList.remove('menu-open');
+                        document.body.style.overflow = '';
+                    }
+                });
+
                 // Close menu when clicking on a link (except dropdown toggle)
                 const navLinksItems = navLinks.querySelectorAll('a:not(.dropdown-toggle)');
                 navLinksItems.forEach(link => {

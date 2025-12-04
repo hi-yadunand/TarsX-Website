@@ -198,6 +198,16 @@ body::-webkit-scrollbar {
   position: relative;
 }
 
+/* Hide social icons on desktop */
+.nav-social-wrapper {
+  display: none;
+}
+
+/* Hide social icons on desktop */
+.nav-social-wrapper {
+  display: none;
+}
+
 .nav-links a {
   display: block;
   padding: 0.5rem 1.25rem;
@@ -551,6 +561,8 @@ body::-webkit-scrollbar {
   .hamburger {
     display: flex;
     margin-left: auto;
+    align-items: center;
+    justify-content: center;
   }
 
   .nav-links {
@@ -597,6 +609,55 @@ body::-webkit-scrollbar {
     width: 100%;
     display: block;
     border-radius: 12px;
+  }
+
+  .nav-links .nav-social-wrapper {
+    display: block;
+    margin-top: auto;
+    width: 100%;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 1rem;
+  }
+
+  .nav-links .social-icons-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .nav-links .nav-social {
+    margin-top: 0;
+    margin-bottom: 0;
+    width: auto;
+    display: inline-flex;
+  }
+
+  .nav-links .social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-radius: 12px;
+    width: 44px;
+    height: 44px;
+  }
+
+  .nav-links .social-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    transform: scale(1.1);
+  }
+
+  .nav-links .github-icon,
+  .nav-links .instagram-icon {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
   }
 
   .nav-links .dropdown-menu {
@@ -1162,6 +1223,8 @@ body::-webkit-scrollbar {
   padding: 0.5rem;
   z-index: 1001;
   position: relative;
+  align-items: center;
+  justify-content: center;
 }
 
 .hamburger span {
@@ -4071,6 +4134,11 @@ body::-webkit-scrollbar {
     display: none;
   }
 
+  /* Hide sidebar navigation on About page in mobile */
+  .about-container .build-log-sidebar {
+    display: none;
+  }
+
   .about-content-wrapper,
   .dronx-content-wrapper,
   .build-log-content-wrapper,
@@ -4152,7 +4220,9 @@ body::-webkit-scrollbar {
   .about-content-wrapper,
   .dronx-content-wrapper,
   .build-log-content-wrapper,
-  .downloads-content-wrapper {
+  .downloads-content-wrapper,
+  .contact-content-wrapper,
+  .support-content-wrapper {
     padding: 1rem 0 4rem 0;
   }
 
@@ -4811,7 +4881,10 @@ footer {
 
   .about-content-wrapper,
   .dronx-content-wrapper,
-  .build-log-content-wrapper {
+  .build-log-content-wrapper,
+  .downloads-content-wrapper,
+  .contact-content-wrapper,
+  .support-content-wrapper {
     padding: 0.5rem 0 3rem 0;
   }
 

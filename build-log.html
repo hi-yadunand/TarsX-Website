@@ -17,13 +17,21 @@
     <header class="home-header">
         <nav class="centered-nav">
             <a href="index.html" class="nav-logo">
-                <img src="Resources/TARSX Logo White.svg" alt="TarsX Logo">
+                TARSX
             </a>
-            <ul class="nav-links">
+            <button class="hamburger" id="hamburger-menu" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li class="dropdown">
-                    <a href="#" onclick="return false;">Projects</a>
+                    <a href="#" onclick="return false;" class="dropdown-toggle">
+                        Projects
+                        <span class="dropdown-arrow">▼</span>
+                    </a>
                     <ul class="dropdown-menu">
                         <li><a href="dronx.html">DronX</a></li>
                     </ul>
@@ -326,6 +334,46 @@
 
     <script src="script.js"></script>
     <script>
+        // Hamburger menu toggle
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburger = document.getElementById('hamburger-menu');
+            const navLinks = document.getElementById('nav-links');
+
+            if (hamburger && navLinks) {
+                const toggleMenu = () => {
+                    hamburger.classList.toggle('active');
+                    navLinks.classList.toggle('active');
+                    document.body.classList.toggle('menu-open');
+                    document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+                };
+
+                hamburger.addEventListener('click', toggleMenu);
+
+                // Close menu when clicking on a link (except dropdown toggle)
+                const navLinksItems = navLinks.querySelectorAll('a:not(.dropdown-toggle)');
+                navLinksItems.forEach(link => {
+                    link.addEventListener('click', () => {
+                        hamburger.classList.remove('active');
+                        navLinks.classList.remove('active');
+                        document.body.classList.remove('menu-open');
+                        document.body.style.overflow = '';
+                    });
+                });
+
+                // Mobile dropdown toggle for Projects
+                const dropdownToggle = navLinks.querySelector('.dropdown-toggle');
+                const dropdown = navLinks.querySelector('.dropdown');
+
+                if (dropdownToggle && dropdown) {
+                    dropdownToggle.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        dropdown.classList.toggle('active');
+                    });
+                }
+            }
+        });
+
         // Build Log Sidebar Navigation
         document.addEventListener('DOMContentLoaded', function () {
             const navLinks = document.querySelectorAll('.build-log-nav .nav-link');

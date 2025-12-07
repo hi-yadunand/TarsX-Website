@@ -866,6 +866,63 @@ body::-webkit-scrollbar {
 
   .home-main {
     padding: 5rem 1rem 3rem;
+    min-height: 100vh;
+  }
+
+  /* Hero Section Mobile - 480px */
+  .hero-container {
+    max-width: 100%;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-headline {
+    font-size: clamp(1.75rem, 8vw, 2.5rem);
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+  }
+
+  .hero-line-1,
+  .hero-line-2 {
+    display: block;
+  }
+
+  .hero-description {
+    font-size: clamp(0.9rem, 3vw, 1rem);
+    margin-bottom: 2rem;
+    padding: 0 0.5rem;
+    line-height: 1.6;
+  }
+
+  .hero-cta-section {
+    max-width: 100%;
+    padding: 0 0.5rem;
+  }
+
+  .email-form {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .email-input {
+    width: 100%;
+    min-width: 100%;
+    padding: 0.875rem 1rem;
+    font-size: 16px; /* Prevents zoom on iOS */
+    border-radius: 10px;
+  }
+
+  .email-submit-btn {
+    width: 100%;
+    padding: 0.875rem 1.5rem;
+    font-size: 0.95rem;
+    border-radius: 10px;
+    min-height: 44px; /* Better touch target */
+  }
+
+  .cta-note {
+    font-size: 0.85rem;
+    margin-top: 0.75rem;
+    padding: 0 0.5rem;
   }
 
   .status-card {
@@ -874,7 +931,21 @@ body::-webkit-scrollbar {
     left: auto;
     margin-top: 2rem;
     width: 100%;
-    max-width: 300px;
+    max-width: 100%;
+    padding: 1rem;
+    border-radius: 12px;
+  }
+
+  .status-icon {
+    font-size: 1.5rem;
+  }
+
+  .status-label {
+    font-size: 0.75rem;
+  }
+
+  .status-value {
+    font-size: 0.9rem;
   }
 
   .home-tagline {
@@ -882,7 +953,54 @@ body::-webkit-scrollbar {
     bottom: auto;
     right: auto;
     margin-top: 2rem;
+    width: 100%;
+    max-width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: 10px;
     justify-content: center;
+  }
+
+  .home-tagline .tagline-line {
+    height: 30px;
+    width: 2px;
+  }
+
+  .home-tagline .tagline-text {
+    font-size: 0.85rem;
+    white-space: normal;
+  }
+
+  /* Footer Mobile */
+  footer {
+    padding: 1rem 0.5rem;
+  }
+
+  .footer-bottom p {
+    font-size: 0.8rem;
+  }
+
+  /* General Text - Extra Small */
+  .section-content {
+    font-size: 0.9rem;
+  }
+
+  .section-content p {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+
+  .section-content h3 {
+    font-size: 1.0625rem;
+    margin-top: 1.125rem;
+  }
+
+  .section-content li {
+    font-size: 0.85rem;
+  }
+
+  /* Container */
+  .container {
+    padding: 0 1rem;
   }
 }
 
@@ -2607,6 +2725,17 @@ body::-webkit-scrollbar {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
+@media (max-width: 768px) {
+  .contact-form-modern form button[type="submit"]:hover {
+    transform: translateY(-2px) scale(1.02);
+  }
+
+  .contact-form-modern form button[type="submit"]:active {
+    transform: translateY(0) scale(0.98);
+    background: var(--primary-dark);
+  }
+}
+
 .contact-form-modern form input[type="hidden"] {
   display: none;
 }
@@ -4117,7 +4246,201 @@ body::-webkit-scrollbar {
 
   .contact-form-modern,
   .contact-links-modern {
-    padding: 2rem;
+    padding: 1.75rem;
+    border-radius: 12px;
+  }
+
+  /* Contact Form Mobile Enhancements - 968px */
+  .contact-form-modern .form-header {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    gap: 0.75rem;
+  }
+
+  .contact-form-modern .form-header h3 {
+    font-size: 1.25rem;
+  }
+
+  .contact-form-modern .form-number {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.6rem;
+  }
+
+  .contact-form-modern form input[type="text"],
+  .contact-form-modern form input[type="email"],
+  .contact-form-modern form textarea {
+    padding: 1.125rem 1rem;
+    font-size: 16px; /* Prevents zoom on iOS */
+    border-radius: 10px;
+    margin-bottom: 1.25rem;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  .contact-form-modern form textarea {
+    min-height: 140px;
+    resize: vertical;
+  }
+
+  .contact-form-modern form button[type="submit"] {
+    padding: 1.125rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 10px;
+    margin-top: 0.75rem;
+    min-height: 48px; /* Better touch target */
+    width: 100%;
+  }
+
+  .contact-form-modern form button[type="submit"]:hover {
+    transform: translateY(-2px) scale(1.02);
+  }
+
+  .contact-form-modern form button[type="submit"]:active {
+    transform: translateY(0) scale(0.98);
+  }
+
+  .contact-form-modern form .h-captcha {
+    margin: 1rem 0;
+  }
+
+  /* Homepage Hero Mobile - 968px */
+  .home-main {
+    padding: 6rem 1.5rem 3rem;
+  }
+
+  .hero-container {
+    max-width: 100%;
+    margin-bottom: 3rem;
+  }
+
+  .hero-headline {
+    font-size: clamp(2rem, 7vw, 3.5rem);
+    margin-bottom: 1.75rem;
+  }
+
+  .hero-description {
+    font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+    margin-bottom: 2.5rem;
+    padding: 0;
+  }
+
+  .hero-cta-section {
+    max-width: 100%;
+  }
+
+  .email-form {
+    flex-direction: column;
+    gap: 0.875rem;
+  }
+
+  .email-input {
+    width: 100%;
+    min-width: 100%;
+    padding: 1rem 1.125rem;
+    font-size: 16px;
+    border-radius: 10px;
+  }
+
+  .email-submit-btn {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 10px;
+    min-height: 48px;
+  }
+
+  .cta-note {
+    font-size: 0.9rem;
+    margin-top: 0.875rem;
+  }
+
+  .status-card {
+    padding: 1.25rem;
+    border-radius: 12px;
+    min-width: auto;
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+    bottom: auto;
+    left: auto;
+    margin-top: 2rem;
+  }
+
+  .status-icon {
+    font-size: 1.75rem;
+  }
+
+  .status-label {
+    font-size: 0.8rem;
+  }
+
+  .status-value {
+    font-size: 1rem;
+  }
+
+  .home-tagline {
+    padding: 0.875rem 1.25rem;
+    border-radius: 10px;
+    position: relative;
+    bottom: auto;
+    right: auto;
+    margin-top: 2rem;
+    width: 100%;
+    max-width: 100%;
+    justify-content: center;
+  }
+
+  .home-tagline .tagline-text {
+    font-size: 0.9rem;
+  }
+
+  .home-tagline .tagline-line {
+    height: 35px;
+  }
+
+  /* Footer Mobile */
+  footer {
+    padding: 1.5rem 1rem;
+  }
+
+  .footer-bottom {
+    text-align: center;
+    padding-top: 1rem;
+    padding-right: 0;
+  }
+
+  .footer-bottom p {
+    font-size: 0.9rem;
+  }
+
+  /* General Text Responsive */
+  .section-content {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .section-content p {
+    font-size: 1rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .section-content h3 {
+    font-size: 1.25rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.875rem;
+  }
+
+  .section-content ul {
+    margin-left: 1.5rem;
+  }
+
+  .section-content li {
+    font-size: 0.95rem;
+  }
+
+  /* Container Responsive */
+  .container {
+    padding: 0 1.5rem;
   }
 
   .nav-container {
@@ -4988,8 +5311,62 @@ footer {
   .about-card-modern,
   .dronx-card-modern,
   .support-coffee-modern {
-    padding: 1.5rem;
-    border-radius: 16px;
+    padding: 1.25rem;
+    border-radius: 12px;
+  }
+
+  /* Contact Form Mobile - Extra Small */
+  .contact-form-modern .form-header {
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .contact-form-modern .form-header h3 {
+    font-size: 1rem;
+  }
+
+  .contact-form-modern .form-number {
+    font-size: 0.7rem;
+    padding: 0.3rem 0.45rem;
+  }
+
+  .contact-form-modern form input[type="text"],
+  .contact-form-modern form input[type="email"],
+  .contact-form-modern form textarea {
+    padding: 0.875rem 0.75rem;
+    font-size: 16px; /* Prevents zoom on iOS */
+    border-radius: 8px;
+    margin-bottom: 0.875rem;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  .contact-form-modern form textarea {
+    min-height: 100px;
+    resize: vertical;
+  }
+
+  .contact-form-modern form button[type="submit"] {
+    padding: 0.875rem 1.25rem;
+    font-size: 0.9rem;
+    border-radius: 8px;
+    margin-top: 0.5rem;
+    min-height: 44px; /* Minimum touch target */
+    width: 100%;
+  }
+
+  .contact-form-modern form button[type="submit"]:hover {
+    transform: translateY(-2px) scale(1.02);
+  }
+
+  .contact-form-modern form button[type="submit"]:active {
+    transform: translateY(0) scale(0.98);
+  }
+
+  .contact-form-modern form .h-captcha {
+    margin: 0.875rem 0;
   }
 
   .form-header,
@@ -5443,6 +5820,111 @@ footer {
 
   .contact-link-card {
     min-height: 60px;
+  }
+
+  /* Container */
+  .container {
+    padding: 0 1rem;
+  }
+
+  /* Homepage Hero - Extra Small */
+  .home-main {
+    padding: 5rem 1rem 2rem;
+  }
+
+  .hero-headline {
+    font-size: clamp(1.5rem, 7vw, 2.25rem);
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-description {
+    font-size: clamp(0.85rem, 2vw, 0.95rem);
+    margin-bottom: 1.75rem;
+  }
+
+  .email-input {
+    padding: 0.8125rem 0.9375rem;
+    font-size: 16px;
+  }
+
+  .email-submit-btn {
+    padding: 0.8125rem 1.25rem;
+    font-size: 0.9rem;
+    min-height: 44px;
+  }
+
+  .cta-note {
+    font-size: 0.8rem;
+  }
+
+  .status-card {
+    padding: 1rem;
+    position: relative;
+    bottom: auto;
+    left: auto;
+    margin-top: 2rem;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .status-icon {
+    font-size: 1.5rem;
+  }
+
+  .status-label {
+    font-size: 0.7rem;
+  }
+
+  .status-value {
+    font-size: 0.875rem;
+  }
+
+  .home-tagline {
+    padding: 0.75rem 1rem;
+    position: relative;
+    bottom: auto;
+    right: auto;
+    margin-top: 2rem;
+    width: 100%;
+    max-width: 100%;
+    justify-content: center;
+  }
+
+  .home-tagline .tagline-text {
+    font-size: 0.8rem;
+  }
+
+  .home-tagline .tagline-line {
+    height: 28px;
+    width: 2px;
+  }
+
+  /* Footer */
+  footer {
+    padding: 1rem 0.5rem;
+  }
+
+  .footer-bottom p {
+    font-size: 0.8rem;
+  }
+
+  /* General Text - Extra Small */
+  .section-content {
+    font-size: 0.9rem;
+  }
+
+  .section-content p {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+
+  .section-content h3 {
+    font-size: 1.0625rem;
+    margin-top: 1.125rem;
+  }
+
+  .section-content li {
+    font-size: 0.85rem;
   }
 }
 
